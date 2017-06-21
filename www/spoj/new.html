@@ -1,0 +1,16 @@
+<strong> Descsription: </strong> Similar to <a href="http://userscripts.org/scripts/show/107714">SpojGuide</a>.
+
+<br /><br />
+<ul><li>It color codes problems based on the number of ACs. It uses the following color scheme, can be changed easily in the code (try it!). Note that the colors are fuzzy and uses a simple linear interpolation. For example, a problem with AC count around ~300 will appear light green and one with AC count, say 50 will have some funny blue-violet color.
+
+<br /><br /><table><tr><th>AC count</th><td> ~20 </td><td> ~30 </td><td> ~40 </td><td> ~80 </td><td> ~160 </td><td> 480+ </td></tr><tr><th>Color</th><td>Red</td><td>Pink</td><td>Purple</td><td>Blue</td><td>Green</td><td>No Hilight</td></tr></table></li>
+
+<li> Adds hover text on each problem code with number of ACs. </li>
+<li> On the problem page, displays the number of AC users and the points you would get by solving.
+<li> If you are logged in, strikes out the problems you have already solved. </li>
+
+</li></ul><h3>Customization</h3><ul>
+<li> You can toggle fuzzy coloring!<br /><code>&#x000A;// Do you want fuzzy colors?&#x000A;<br />&#x000A;var fuzzyColors = true;</code></li><br /><li> You can also edit the color scheme. Look at the code for explanatory comments!
+<code><br />&#x000A;// ----------------------------------------------------------------------<br />&#x000A;// BEGIN Customize Color Scheme Here<br />&#x000A;// ----------------------------------------------------------------------<br />&#x000A;<br />&#x000A;// If fuzzyColors is false, then every AC count is rounded to the<br />&#x000A;// checkpoint which is the maximum lower bound. Then that checkpoints'<br />&#x000A;// corresponding color is used.<br />&#x000A;<br />&#x000A;// If fuzzyColors is true, the color is the weighted average of the<br />&#x000A;// two neighbouring checkpoints.<br />&#x000A;// The weight is the distance from each checkpoint.<br />&#x000A;<br /></code><code>var checkpoints = new Array(      0,    20,     40,    80,   160,   480,  1155347700 );</code><br /><code>    //                       bright red,   red, purple,  blue, green,    yellow/spoj bg</code><br /><code>    var red =         new Array(    255,   255,    200,   200,   150,   246,        246 );</code><br /><code>    var green =       new Array(    100,   150,    150,   200,   255,   249,        249 );</code><br /><code>    var blue =        new Array(    100,   150,    255,   255,   150,   224,        224 );</code><br /><code><br />&#x000A;<br />&#x000A;// ----------------------------------------------------------------------<br />&#x000A;// END Customize Color Scheme Here<br />&#x000A;// ----------------------------------------------------------------------<br /></code></li></ul></div>
+<br class='clear' />
+<br />

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/Dropbox/prog/snippets/gangnam.py.html</title>
+<meta name="Generator" content="Vim/7.4">
+<meta name="plugin-version" content="vim7.4_v1">
+<meta name="syntax" content="python">
+<meta name="settings" content="use_css,pre_wrap,no_foldcolumn,expand_tabs,prevent_copy=">
+<meta name="colorscheme" content="none">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+* { font-size: 1em; }
+.Statement { color: #a52a2a; font-weight: bold; }
+.Comment { color: #0000ff; }
+.Constant { color: #ff00ff; }
+.PreProc { color: #800080; }
+.Identifier { color: #008b8b; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+-->
+</script>
+</head>
+<body>
+<pre id='vimCodeElement'>
+<span class="Comment">#!/usr/bin/python</span>
+<span class="Comment">#</span>
+<span class="Comment"># Create plots from discrete set of points. It's set to connect the first and last point together, currently.</span>
+<span class="Comment"># Example usage</span>
+<span class="Comment"># $ ./gangnam.py | gnuplot</span>
+<span class="Comment"># 9</span>
+<span class="Comment"># 0 0</span>
+<span class="Comment"># 1 1</span>
+<span class="Comment"># 2 2</span>
+<span class="Comment"># 0 2</span>
+<span class="Comment"># 1 1</span>
+<span class="Comment"># -1 1</span>
+<span class="Comment"># 0 2</span>
+<span class="Comment"># -2 2</span>
+<span class="Comment"># -1 1</span>
+
+<span class="PreProc">import</span> math
+
+N = <span class="Identifier">int</span>(<span class="Identifier">raw_input</span>())
+
+f = []
+<span class="Statement">for</span> i <span class="Statement">in</span> <span class="Identifier">xrange</span>(<span class="Constant">0</span>, N):
+  (x, y) = [<span class="Identifier">int</span>(x) <span class="Statement">for</span> x <span class="Statement">in</span> <span class="Identifier">raw_input</span>().split()]
+  f.append(<span class="Identifier">complex</span>(x, y))
+
+F = []
+<span class="Statement">for</span> i <span class="Statement">in</span> <span class="Identifier">xrange</span>(<span class="Constant">0</span>, N):
+  ang = -<span class="Constant">2</span> * math.pi * i / N
+  rt = <span class="Identifier">complex</span>(math.cos(ang), math.sin(ang))
+  w = <span class="Constant">1</span>
+  r = <span class="Constant">0</span>
+  <span class="Statement">for</span> j <span class="Statement">in</span> <span class="Identifier">xrange</span>(<span class="Constant">0</span>, N):
+    r += f[j] * w
+    w *= rt
+  F.append(r)
+
+<span class="Identifier">print</span> <span class="Constant">&quot;set parametric&quot;</span>
+<span class="Identifier">print</span> <span class="Constant">&quot;set samples&quot;</span>, N + <span class="Constant">1</span>
+
+<span class="Identifier">print</span> <span class="Constant">&quot;plot [t=0:&quot;</span>, N, <span class="Constant">&quot;]&quot;</span>,
+<span class="Statement">for</span> i <span class="Statement">in</span> <span class="Identifier">xrange</span>(<span class="Constant">0</span>, N):
+  ang = <span class="Constant">2</span> * math.pi * i / N
+  arg = math.atan2(F[i].imag, F[i].real)
+  <span class="Statement">if</span> i &gt; <span class="Constant">0</span>:
+    <span class="Identifier">print</span> <span class="Constant">&quot;+&quot;</span>,
+  <span class="Identifier">print</span> <span class="Identifier">abs</span>(F[i]) / N, <span class="Constant">&quot;* cos(&quot;</span>, arg, <span class="Constant">&quot;+&quot;</span>, ang, <span class="Constant">&quot;* t)&quot;</span>,
+
+<span class="Identifier">print</span> <span class="Constant">&quot;,&quot;</span>,
+
+<span class="Statement">for</span> i <span class="Statement">in</span> <span class="Identifier">xrange</span>(<span class="Constant">0</span>, N):
+  ang = <span class="Constant">2</span> * math.pi * i / N
+  arg = math.atan2(F[i].imag, F[i].real)
+  <span class="Statement">if</span> i &gt; <span class="Constant">0</span>:
+    <span class="Identifier">print</span> <span class="Constant">&quot;+&quot;</span>,
+  <span class="Identifier">print</span> <span class="Identifier">abs</span>(F[i]) / N, <span class="Constant">&quot;* sin(&quot;</span>, arg, <span class="Constant">&quot;+&quot;</span>, ang, <span class="Constant">&quot;* t)&quot;</span>,
+
+<span class="Identifier">print</span>
+<span class="Identifier">print</span> <span class="Constant">&quot;pause 555&quot;</span>
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->

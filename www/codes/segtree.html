@@ -1,0 +1,350 @@
+<html><head><style>
+.code .hll { background-color: #ffffcc }
+.code  { background: #f8f8f8; }
+.code .c { color: #408080; font-style: italic } /* Comment */
+.code .err { border: 1px solid #FF0000 } /* Error */
+.code .k { color: #008000; font-weight: bold } /* Keyword */
+.code .o { color: #666666 } /* Operator */
+.code .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.code .cp { color: #BC7A00 } /* Comment.Preproc */
+.code .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.code .cs { color: #408080; font-style: italic } /* Comment.Special */
+.code .gd { color: #A00000 } /* Generic.Deleted */
+.code .ge { font-style: italic } /* Generic.Emph */
+.code .gr { color: #FF0000 } /* Generic.Error */
+.code .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.code .gi { color: #00A000 } /* Generic.Inserted */
+.code .go { color: #888888 } /* Generic.Output */
+.code .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.code .gs { font-weight: bold } /* Generic.Strong */
+.code .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.code .gt { color: #0044DD } /* Generic.Traceback */
+.code .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.code .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.code .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.code .kp { color: #008000 } /* Keyword.Pseudo */
+.code .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.code .kt { color: #B00040 } /* Keyword.Type */
+.code .m { color: #666666 } /* Literal.Number */
+.code .s { color: #BA2121 } /* Literal.String */
+.code .na { color: #7D9029 } /* Name.Attribute */
+.code .nb { color: #008000 } /* Name.Builtin */
+.code .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.code .no { color: #880000 } /* Name.Constant */
+.code .nd { color: #AA22FF } /* Name.Decorator */
+.code .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.code .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.code .nf { color: #0000FF } /* Name.Function */
+.code .nl { color: #A0A000 } /* Name.Label */
+.code .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.code .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.code .nv { color: #19177C } /* Name.Variable */
+.code .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.code .w { color: #bbbbbb } /* Text.Whitespace */
+.code .mf { color: #666666 } /* Literal.Number.Float */
+.code .mh { color: #666666 } /* Literal.Number.Hex */
+.code .mi { color: #666666 } /* Literal.Number.Integer */
+.code .mo { color: #666666 } /* Literal.Number.Oct */
+.code .sb { color: #BA2121 } /* Literal.String.Backtick */
+.code .sc { color: #BA2121 } /* Literal.String.Char */
+.code .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.code .s2 { color: #BA2121 } /* Literal.String.Double */
+.code .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.code .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.code .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.code .sx { color: #008000 } /* Literal.String.Other */
+.code .sr { color: #BB6688 } /* Literal.String.Regex */
+.code .s1 { color: #BA2121 } /* Literal.String.Single */
+.code .ss { color: #19177C } /* Literal.String.Symbol */
+.code .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.code .vc { color: #19177C } /* Name.Variable.Class */
+.code .vg { color: #19177C } /* Name.Variable.Global */
+.code .vi { color: #19177C } /* Name.Variable.Instance */
+.code .il { color: #666666 } /* Literal.Number.Integer.Long */
+</style><body>
+<table class="codetable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142</pre></div></td><td class="code"><div class="code"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">node</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">segtree</span> <span class="p">{</span>
+  <span class="n">node</span> <span class="o">*</span><span class="n">tree</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">h</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">left_most</span><span class="p">,</span> <span class="n">right_most</span><span class="p">;</span>
+  <span class="k">const</span> <span class="n">node</span> <span class="n">IDENTITY</span><span class="p">;</span>
+  <span class="n">segtree</span><span class="p">()</span> <span class="p">{</span> <span class="n">tree</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+  <span class="o">~</span><span class="n">segtree</span><span class="p">()</span> <span class="p">{</span> <span class="k">delete</span><span class="p">[]</span> <span class="n">tree</span><span class="p">;</span> <span class="p">}</span>
+  <span class="kt">void</span> <span class="n">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">a</span><span class="p">[]);</span>
+  <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">pushdown</span><span class="p">(</span><span class="kt">int</span> <span class="n">idx</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">idx</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">pushdown</span><span class="p">(</span><span class="n">idx</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">tree</span><span class="p">[</span><span class="n">idx</span><span class="p">].</span><span class="n">push</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="n">idx</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">],</span> <span class="n">tree</span><span class="p">[(</span><span class="n">idx</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">)</span><span class="o">|</span><span class="mi">1</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">;</span> <span class="c1">// range is [u, v), single element is u</span>
+  <span class="n">node</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">left_leaf</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right_leaf</span><span class="p">);</span>
+  <span class="n">node</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">_u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_v</span><span class="p">);</span>
+  <span class="n">node</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">idx</span><span class="p">);</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">idx</span><span class="p">,</span> <span class="n">T</span> <span class="n">d</span><span class="p">);</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">range_update</span><span class="p">(</span><span class="kt">int</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">left_leaf</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right_leaf</span><span class="p">,</span> <span class="n">T</span> <span class="n">d</span><span class="p">);</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">range_update</span><span class="p">(</span><span class="kt">int</span> <span class="n">_u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_v</span><span class="p">,</span> <span class="n">T</span> <span class="n">d</span><span class="p">);</span>
+  <span class="c1">// searches for the last place i, such that merge[0..i] compares &lt; k, requires op&lt;</span>
+  <span class="kt">int</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">node</span> <span class="n">k</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="cp">#include &lt;bits/stdc++.h&gt;</span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">10004</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="n">node</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">val</span><span class="p">,</span> <span class="n">sum</span><span class="p">;</span>
+  <span class="n">node</span><span class="p">()</span> <span class="o">:</span> <span class="n">val</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="n">node</span><span class="p">(</span><span class="kt">int</span> <span class="n">_val</span><span class="p">)</span> <span class="o">:</span> <span class="n">val</span><span class="p">(</span><span class="n">_val</span><span class="p">),</span> <span class="n">sum</span><span class="p">(</span><span class="n">_val</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="k">const</span> <span class="n">node</span><span class="o">&amp;</span> <span class="n">l</span><span class="p">,</span> <span class="k">const</span> <span class="n">node</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">sum</span> <span class="o">=</span> <span class="n">l</span><span class="p">.</span><span class="n">sum</span> <span class="o">+</span> <span class="n">r</span><span class="p">.</span><span class="n">sum</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kt">void</span> <span class="n">push</span><span class="p">(</span><span class="n">node</span><span class="o">&amp;</span> <span class="n">l</span><span class="p">,</span> <span class="n">node</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span><span class="n">sum</span> <span class="o">=</span> <span class="n">val</span> <span class="o">=</span> <span class="n">d</span><span class="p">;}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">segtree</span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span> <span class="n">sumt</span><span class="p">;</span>
+  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+  <span class="n">sumt</span><span class="p">.</span><span class="n">build</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">type</span><span class="p">;</span>
+  <span class="n">node</span> <span class="n">res</span><span class="p">;</span>
+  <span class="k">while</span><span class="p">(</span><span class="n">m</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">type</span> <span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">x</span><span class="o">--</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">res</span> <span class="o">=</span> <span class="n">sumt</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">res</span><span class="p">.</span><span class="n">sum</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">sumt</span><span class="p">.</span><span class="n">update</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">node</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">segtree</span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;::</span><span class="n">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">a</span><span class="p">[])</span> <span class="p">{</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="n">size</span><span class="p">;</span> <span class="n">h</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="n">log2</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+  <span class="n">left_most</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">h</span><span class="p">;</span> <span class="n">right_most</span> <span class="o">=</span> <span class="n">left_most</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">;</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span> <span class="k">delete</span><span class="p">[]</span> <span class="n">tree</span><span class="p">;</span>
+  <span class="n">tree</span> <span class="o">=</span> <span class="k">new</span> <span class="n">node</span><span class="p">[</span><span class="n">right_most</span><span class="p">];</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="o">|</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">h</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span><span class="n">node</span><span class="p">){</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]};</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">left_most</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">merge</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">],</span> <span class="n">tree</span><span class="p">[(</span><span class="n">i</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">)</span><span class="o">|</span><span class="mi">1</span><span class="p">]);</span>
+<span class="p">}</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">node</span><span class="o">&gt;</span>
+<span class="n">node</span> <span class="n">segtree</span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;::</span><span class="n">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">left_leaf</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right_leaf</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">u</span> <span class="o">&lt;=</span> <span class="n">left_leaf</span> <span class="o">&amp;&amp;</span> <span class="n">right_leaf</span> <span class="o">&lt;=</span> <span class="n">v</span><span class="p">)</span> <span class="k">return</span> <span class="n">tree</span><span class="p">[</span><span class="n">root</span><span class="p">];</span>
+  <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left_leaf</span> <span class="o">+</span> <span class="n">right_leaf</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="n">lc</span> <span class="o">=</span> <span class="n">root</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">,</span> <span class="n">rc</span> <span class="o">=</span> <span class="n">lc</span><span class="o">|</span><span class="mi">1</span><span class="p">;</span>
+  <span class="n">tree</span><span class="p">[</span><span class="n">root</span><span class="p">].</span><span class="n">push</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="n">lc</span><span class="p">],</span> <span class="n">tree</span><span class="p">[</span><span class="n">rc</span><span class="p">]);</span>
+  <span class="n">node</span> <span class="n">ret</span><span class="p">;</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">v</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">)</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">query</span><span class="p">(</span><span class="n">lc</span><span class="p">,</span> <span class="n">left_leaf</span><span class="p">,</span> <span class="n">mid</span><span class="p">);</span>
+  <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">u</span> <span class="o">&gt;=</span> <span class="n">mid</span><span class="p">)</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">query</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">right_leaf</span><span class="p">);</span>
+  <span class="k">else</span> <span class="n">ret</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">query</span><span class="p">(</span><span class="n">lc</span><span class="p">,</span> <span class="n">left_leaf</span><span class="p">,</span> <span class="n">mid</span><span class="p">),</span> <span class="n">query</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">right_leaf</span><span class="p">));</span>
+  <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">node</span><span class="o">&gt;</span>
+<span class="n">node</span> <span class="n">segtree</span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;::</span><span class="n">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">_u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_v</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">u</span> <span class="o">=</span> <span class="n">_u</span> <span class="o">+</span> <span class="n">left_most</span><span class="p">;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">_v</span> <span class="o">+</span> <span class="n">left_most</span><span class="p">;</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">u</span> <span class="o">&gt;=</span> <span class="n">v</span><span class="p">)</span> <span class="k">return</span> <span class="n">IDENTITY</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nf">query</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">left_most</span><span class="p">,</span> <span class="n">right_most</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">node</span><span class="o">&gt;</span>
+<span class="n">node</span> <span class="n">segtree</span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;::</span><span class="n">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">idx</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">idx</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">h</span><span class="p">);</span>
+  <span class="n">pushdown</span><span class="p">(</span><span class="n">idx</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">tree</span><span class="p">[</span><span class="n">idx</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">node</span><span class="o">&gt;</span> <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">segtree</span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;::</span><span class="n">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">idx</span><span class="p">,</span> <span class="n">T</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">idx</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">h</span><span class="p">);</span>
+  <span class="n">pushdown</span><span class="p">(</span><span class="n">idx</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n">tree</span><span class="p">[</span><span class="n">idx</span><span class="p">].</span><span class="n">update</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+  <span class="n">idx</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">while</span><span class="p">(</span><span class="n">idx</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">tree</span><span class="p">[</span><span class="n">idx</span><span class="p">].</span><span class="n">merge</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="n">idx</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">],</span> <span class="n">tree</span><span class="p">[(</span><span class="n">idx</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">)</span><span class="o">|</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="n">idx</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">node</span><span class="o">&gt;</span> <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">segtree</span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;::</span><span class="n">range_update</span><span class="p">(</span><span class="kt">int</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">left_leaf</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right_leaf</span><span class="p">,</span> <span class="n">T</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">u</span> <span class="o">&lt;=</span> <span class="n">left_leaf</span> <span class="o">&amp;&amp;</span> <span class="n">right_leaf</span> <span class="o">&lt;=</span> <span class="n">v</span><span class="p">)</span> <span class="k">return</span> <span class="n">tree</span><span class="p">[</span><span class="n">root</span><span class="p">].</span><span class="n">update</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+  <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left_leaf</span> <span class="o">+</span> <span class="n">right_leaf</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="n">lc</span> <span class="o">=</span> <span class="n">root</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">,</span> <span class="n">rc</span> <span class="o">=</span> <span class="n">lc</span><span class="o">|</span><span class="mi">1</span><span class="p">;</span>
+  <span class="n">tree</span><span class="p">[</span><span class="n">root</span><span class="p">].</span><span class="n">push</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="n">lc</span><span class="p">],</span> <span class="n">tree</span><span class="p">[</span><span class="n">rc</span><span class="p">]);</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">u</span> <span class="o">&lt;</span> <span class="n">mid</span><span class="p">)</span> <span class="n">range_update</span><span class="p">(</span><span class="n">lc</span><span class="p">,</span> <span class="n">left_leaf</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">v</span> <span class="o">&gt;</span> <span class="n">mid</span><span class="p">)</span> <span class="n">range_update</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">right_leaf</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+  <span class="n">tree</span><span class="p">[</span><span class="n">root</span><span class="p">].</span><span class="n">merge</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="n">lc</span><span class="p">],</span> <span class="n">tree</span><span class="p">[</span><span class="n">rc</span><span class="p">]);</span>
+<span class="p">}</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">node</span><span class="o">&gt;</span> <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">segtree</span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;::</span><span class="n">range_update</span><span class="p">(</span><span class="kt">int</span> <span class="n">_u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_v</span><span class="p">,</span> <span class="n">T</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">u</span> <span class="o">=</span> <span class="n">_u</span> <span class="o">+</span> <span class="n">left_most</span><span class="p">;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">_v</span> <span class="o">+</span> <span class="n">left_most</span><span class="p">;</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">u</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">)</span> <span class="n">range_update</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">left_most</span><span class="p">,</span> <span class="n">right_most</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">node</span><span class="o">&gt;</span>
+<span class="kt">int</span> <span class="n">segtree</span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;::</span><span class="n">binary_search</span><span class="p">(</span><span class="n">node</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">root</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lc</span><span class="p">,</span> <span class="n">rc</span><span class="p">;</span>
+  <span class="n">node</span> <span class="n">nd</span><span class="p">;</span>
+  <span class="k">while</span><span class="p">(</span><span class="n">root</span> <span class="o">&lt;</span> <span class="n">left_most</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">lc</span> <span class="o">=</span> <span class="n">root</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">,</span> <span class="n">rc</span> <span class="o">=</span> <span class="n">lc</span><span class="o">|</span><span class="mi">1</span><span class="p">;</span>
+    <span class="n">tree</span><span class="p">[</span><span class="n">root</span><span class="p">].</span><span class="n">push</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="n">lc</span><span class="p">],</span> <span class="n">tree</span><span class="p">[</span><span class="n">rc</span><span class="p">]);</span>
+    <span class="n">node</span> <span class="n">m</span><span class="p">;</span>
+    <span class="n">m</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">nd</span><span class="p">,</span> <span class="n">tree</span><span class="p">[</span><span class="n">lc</span><span class="p">]);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">nd</span> <span class="o">=</span> <span class="n">m</span><span class="p">;</span> <span class="n">root</span> <span class="o">=</span> <span class="n">rc</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">root</span> <span class="o">=</span> <span class="n">lc</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="n">node</span> <span class="n">ret</span><span class="p">;</span>
+  <span class="n">ret</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">nd</span><span class="p">,</span> <span class="n">tree</span><span class="p">[</span><span class="n">root</span><span class="p">]);</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">)</span> <span class="k">return</span> <span class="n">root</span> <span class="o">-</span> <span class="n">left_most</span><span class="p">;</span>
+  <span class="k">else</span> <span class="k">return</span> <span class="n">root</span> <span class="o">-</span> <span class="n">left_most</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+</body></html>

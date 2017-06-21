@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/Dropbox/linux_backup/vimrc.vim.html</title>
+<meta name="Generator" content="Vim/7.4">
+<meta name="plugin-version" content="vim7.4_v1">
+<meta name="syntax" content="vim">
+<meta name="settings" content="use_css,pre_wrap,no_foldcolumn,expand_tabs,prevent_copy=">
+<meta name="colorscheme" content="none">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+* { font-size: 1em; }
+.Statement { color: #a52a2a; font-weight: bold; }
+.PreProc { color: #800080; }
+.Type { color: #2e8b57; font-weight: bold; }
+.Constant { color: #ff00ff; }
+.Comment { color: #0000ff; }
+.Special { color: #6a5acd; }
+.Identifier { color: #008b8b; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+-->
+</script>
+</head>
+<body>
+<pre id='vimCodeElement'>
+<span class="Comment">&quot;If you're in insert mode, use &lt;C-o&gt; to perform an action of block mode without pressing &lt;Esc&gt;. </span>
+<span class="Comment">&quot;For example, &lt;C-o&gt; :w is the same as &lt;Esc&gt;:w&lt;CR&gt;i.</span>
+<span class="Comment">&quot;Insert the result of a command with :r !&lt;your cmd&gt; or :. ! &lt;your cmd&gt;</span>
+<span class="Comment">&quot;For auto entering</span>
+<span class="Comment">&quot;autocmd BufNewFile *.cpp r ~/prog/base.cpp</span>
+<span class="Comment">&quot;Read <a href="http://stackoverflow.com/questions/726894/what-are-the-dark-corners-of-vim-your-mom-never-told-you-about">http://stackoverflow.com/questions/726894/what-are-the-dark-corners-of-vim-your-mom-never-told-you-about</a></span>
+
+<span class="Comment">&quot;Mapping Ctrl + s for save</span>
+<span class="Comment">&quot;Requires 'stty -ixon' to be written in bashrc (to disable control flow)</span>
+<span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">C-S</span><span class="Special">&gt;</span> :w <span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">C-S</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">Esc</span><span class="Special">&gt;</span> :w <span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+
+<span class="Comment">&quot;Ctrl + V is used for paste, visual block is now Ctrl + Q</span>
+<span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">C-V</span><span class="Special">&gt;</span> &quot;+p
+<span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">C-V</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">Esc</span><span class="Special">&gt;&lt;</span><span class="Special">C-V</span><span class="Special">&gt;</span>
+<span class="Statement">vnoremap</span> <span class="Special">&lt;</span><span class="Special">C-C</span><span class="Special">&gt;</span> &quot;+y
+<span class="Statement">vnoremap</span> <span class="Special">&lt;</span><span class="Special">C-X</span><span class="Special">&gt;</span> &quot;+x
+<span class="Statement">vmap</span> <span class="Special">&lt;</span><span class="Special">C-V</span><span class="Special">&gt;</span> d&quot;+P
+
+<span class="Comment">&quot;Commands when shift remaing pressed while pressing quit / write</span>
+:<span class="Statement">command</span> WQ <span class="Statement">wq</span>
+:<span class="Statement">command</span> Wq <span class="Statement">wq</span>
+:<span class="Statement">command</span> W <span class="Statement">w</span>
+:<span class="Statement">command</span> Q <span class="Statement">q</span>
+
+<span class="Comment">&quot;For navigating tabs like other applications</span>
+<span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">C-PageDown</span><span class="Special">&gt;</span> gt
+<span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">C-PageUp</span><span class="Special">&gt;</span> gT
+<span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">C-O</span><span class="Special">&gt;</span> :tabnew <span class="Special">&lt;</span><span class="Special">Space</span><span class="Special">&gt;</span>
+<span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">C-T</span><span class="Special">&gt;</span> :tabnew <span class="Special">&lt;</span><span class="Special">Space</span><span class="Special">&gt;</span>
+
+<span class="Comment">&quot;Open new panes to right and bottom</span>
+<span class="Statement">set</span> <span class="PreProc">splitright</span>
+<span class="Statement">set</span> <span class="PreProc">splitbelow</span>
+
+<span class="Comment">&quot;Direct navigation in split mode</span>
+<span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">C-Up</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-W</span><span class="Special">&gt;&lt;</span><span class="Special">Up</span><span class="Special">&gt;</span>
+<span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">C-Down</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-W</span><span class="Special">&gt;&lt;</span><span class="Special">Down</span><span class="Special">&gt;</span>
+<span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">C-Right</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-W</span><span class="Special">&gt;&lt;</span><span class="Special">Right</span><span class="Special">&gt;</span>
+<span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">C-Left</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-W</span><span class="Special">&gt;&lt;</span><span class="Special">Left</span><span class="Special">&gt;</span>
+
+<span class="Comment">&quot;Trying to close</span>
+<span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">C-E</span><span class="Special">&gt;</span> :q <span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+
+<span class="Comment">&quot;mapping increment / decrement, are not in use much</span>
+<span class="Comment">&quot;nnoremap &lt;C-I&gt; &lt;C-A&gt;</span>
+<span class="Comment">&quot;nnoremap &lt;C-D&gt; &lt;C-X&gt;</span>
+
+<span class="Comment">&quot;Select All option, conflicts with the increment option</span>
+<span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">C-A</span><span class="Special">&gt;</span> ggVG
+
+<span class="Comment">&quot;Auto Bracket completion</span>
+<span class="Statement">inoremap</span> {      {}<span class="Special">&lt;</span><span class="Special">Left</span><span class="Special">&gt;</span>
+<span class="Statement">inoremap</span> {<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>  {<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>}<span class="Special">&lt;</span><span class="Special">Esc</span><span class="Special">&gt;</span>O
+<span class="Statement">inoremap</span> {{     {
+<span class="Statement">inoremap</span> {}     {}
+
+<span class="Comment">&quot;&quot;inoremap        (  ()&lt;Left&gt;</span>
+<span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">expr</span><span class="Special">&gt;</span> (  matchstr(strpart(getline('.'), col('.')-1, 1), '[0-9A-Za-z_]') == &quot;&quot; ? &quot;()<span class="Special">&lt;</span><span class="Special">Left</span><span class="Special">&gt;</span>&quot; : &quot;(&quot;
+<span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">expr</span><span class="Special">&gt;</span> )  strpart(getline('.'), col('.')-1, 1) == &quot;)&quot; ? &quot;<span class="Special">\&lt;</span><span class="Special">Right</span><span class="Special">&gt;</span>&quot; : &quot;)&quot;
+
+<span class="Statement">inoremap</span>        &quot;  &quot;&quot;<span class="Special">&lt;</span><span class="Special">Left</span><span class="Special">&gt;</span>
+<span class="Statement">inoremap</span>        '  ''<span class="Special">&lt;</span><span class="Special">Left</span><span class="Special">&gt;</span>
+<span class="Statement">inoremap</span>        [  []<span class="Special">&lt;</span><span class="Special">Left</span><span class="Special">&gt;</span>
+<span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">expr</span><span class="Special">&gt;</span> ]  strpart(getline('.'), col('.')-1, 1) == &quot;]&quot; ? &quot;<span class="Special">\&lt;</span><span class="Special">Right</span><span class="Special">&gt;</span>&quot; : &quot;]&quot;
+
+<span class="Comment">&quot;Place 2 spaces instead of a tab</span>
+<span class="Statement">filetype</span> <span class="Type">plugin</span> <span class="Type">indent</span> <span class="Type">on</span>
+<span class="Statement">syntax</span> <span class="Type">on</span>
+<span class="Statement">set</span> <span class="PreProc">shiftwidth</span>=2
+<span class="Statement">set</span> <span class="PreProc">expandtab</span>
+<span class="Statement">set</span> <span class="PreProc">softtabstop</span>=2
+
+<span class="Statement">set</span> <span class="PreProc">shiftround</span> <span class="Comment">&quot; when shifting a non-aligned set of lines, align them to the next tabstop</span>
+<span class="Statement">set</span> <span class="PreProc">nu</span>         <span class="Comment">&quot; show line numbers</span>
+<span class="Statement">set</span> <span class="PreProc">cursorline</span> <span class="Comment">&quot; underline current line</span>
+
+<span class="Comment">&quot;while scrolling keep cursor at the middle</span>
+<span class="Statement">set</span> <span class="PreProc">scrolloff</span>=999
+
+<span class="Comment">&quot;Fold using indentation</span>
+<span class="Statement">set</span> <span class="PreProc">foldmethod</span>=indent
+<span class="Statement">nnoremap</span> fm :set foldmethod=manual <span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="Comment">&quot;Unfold all in beginning</span>
+<span class="Statement">set</span> <span class="PreProc">foldlevel</span>=99
+<span class="Comment">&quot;Shortcut for fold, place the cursor on start of indent block (like while(), if, etc and press ff</span>
+<span class="Statement">nnoremap</span> ff jzc
+<span class="Statement">nnoremap</span> uu zo
+<span class="Statement">nnoremap</span> UU zR
+
+<span class="Statement">set</span> <span class="PreProc">hlsearch</span>  <span class="Comment">&quot; highlight all matching entries</span>
+<span class="Statement">set</span> <span class="PreProc">incsearch</span> <span class="Comment">&quot; search as you type</span>
+<span class="Statement">set</span> <span class="PreProc">ignorecase</span>
+<span class="Statement">set</span> <span class="PreProc">smartcase</span> <span class="Comment">&quot; smartcase search</span>
+
+<span class="Comment">&quot; Taken from Misof's vimrc: <a href="https://people.ksp.sk/~misof/programy/vimrc.html">https://people.ksp.sk/~misof/programy/vimrc.html</a> </span>
+
+<span class="Comment">&quot; if I press &lt;tab&gt; in command line, show me all options if there is more than one</span>
+<span class="Statement">set</span> <span class="PreProc">wildmenu</span>
+
+<span class="Comment">&quot; y and d put stuff into system clipboard (so that other apps can see it)</span>
+<span class="Comment">&quot;&quot;set clipboard=unnamed,unnamedplus</span>
+
+<span class="Comment">&quot; while typing a command, show it in the bottom right corner</span>
+<span class="Statement">set</span> <span class="PreProc">showcmd</span>
+
+<span class="Comment">&quot; enough with the @@@s, show all you can if the last displayed line is too long</span>
+<span class="Statement">set</span> <span class="PreProc">display</span>+=lastline
+<span class="Comment">&quot; show chars that cannot be displayed as &lt;13&gt; instead of ^M</span>
+<span class="Statement">set</span> <span class="PreProc">display</span>+=uhex
+
+<span class="Comment">&quot; some tweaks taken from vimbits.com:</span>
+<span class="Comment">&quot; reselect visual block after indent/outdent </span>
+<span class="Statement">vnoremap</span> &lt; &lt;gv
+<span class="Statement">vnoremap</span> &gt; &gt;gv
+<span class="Comment">&quot; make Y behave like other capitals </span>
+<span class="Statement">map</span> Y y$
+<span class="Comment">&quot; force saving files that require root permission </span>
+<span class="Statement">cmap</span> w!! %!sudo tee &gt; /dev/null %
+
+<span class="Comment">&quot;Indentation may cause trouble in pasting blocks of programs. </span>
+<span class="Comment">&quot;Use :set paste while pasting and :set nopaste to exit paste mode</span>
+
+<span class="Comment">&quot;For syntastic plugin</span>
+<span class="Comment">&quot;<a href="https://github.com/scrooloose/syntastic">https://github.com/scrooloose/syntastic</a></span>
+<span class="Statement">execute</span> <span class="Identifier">pathogen#infect</span><span class="Special">()</span>
+
+<span class="Comment">&quot;start NerdTree on startup and start in main window</span>
+<span class="Statement">autocmd</span> <span class="Type">VimEnter</span> * NERDTree
+<span class="Statement">autocmd</span> <span class="Type">VimEnter</span> * <span class="Statement">wincmd</span> <span class="Statement">p</span>
+
+<span class="Comment">&quot;Setting NERDTree Window Size</span>
+<span class="Statement">let</span> <span class="Identifier">g:NERDTreeWinSize</span><span class="Statement">=</span><span class="Constant">20</span>
+
+<span class="Statement">if</span> <span class="Identifier">has</span><span class="Special">(</span><span class="Constant">&quot;gui_running&quot;</span><span class="Special">)</span>
+  <span class="Statement">set</span> <span class="PreProc">guioptions</span>-=T     <span class="Comment">&quot;no menu bar</span>
+  <span class="Statement">set</span> <span class="PreProc">guioptions</span>-=r     <span class="Comment">&quot;no scorllbar on right</span>
+  <span class="Statement">set</span> <span class="PreProc">guioptions</span>-=l     <span class="Comment">&quot;no scorllbar on left </span>
+  <span class="Statement">set</span> <span class="PreProc">lines</span>=35
+  <span class="Statement">set</span> <span class="PreProc">columns</span>=120
+  <span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">C-O</span><span class="Special">&gt;</span> :browse tabnew <span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="Statement">endif</span>
+
+<span class="Comment">&quot; Scala syntax </span>
+<span class="Comment">&quot;augroup filetypedetect</span>
+<span class="Comment">&quot;  au! BufRead,BufNewFile *.scala, set filetype=scala</span>
+<span class="Comment">&quot;augroup END</span>
+
+<span class="Comment">&quot; mapping Caps Lock to &lt;Esc&gt;</span>
+<span class="Comment">&quot;&quot;xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'</span>
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->

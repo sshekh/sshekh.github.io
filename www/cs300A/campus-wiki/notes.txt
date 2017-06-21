@@ -1,0 +1,2 @@
+#command
+enscript --pretty-print -w html 2A -p 2A.html

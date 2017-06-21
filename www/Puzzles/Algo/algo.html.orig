@@ -1,0 +1,387 @@
+<HTML>
+  <HEAD>
+    <TITLE>
+      Exercises in the area of design and analysis of Algorithms 
+    </TITLE>
+  </HEAD>
+
+  <BODY BGCOLOR="000044" TEXT="bbbb88" LINK="blue" VLINK="RED">
+  <P ALIGN="CENTER">  <center>
+      <FONT SIZE="6" COLOR="BROWN" FACE="Arial,Helvetica"> </FONT>
+    </center>
+  </P>  
+  <BR> 
+
+<center>
+<FONT COLOR="VIOLET"> <H2> Nice Exercises </H2> </FONT>
+</center>
+
+<OL>
+   <LI><b> <FONT COLOR="red"> ** </FONT> Exploring a Binary Heap </b> <P></P>
+Consider a binary heap containing <i>n </i>numbers 
+(the root stores the greatest number). You are given a 
+positive integer <i> k < n </i> and a number <i> x </i>. You have to 
+determine whether the <i>k</i>th largest element of the heap is greater than 
+<i>x</i> or not. Your algorithm must take <i>O(k)</i> time. You may use
+<i>O(k) </i> extra storage.
+<A HREF="#Solution-1">Hint </A>
+<P></P>
+<HR>
+  <LI><b><FONT COLOR="red"> * </FONT> Merging two search trees</b> <P></P>
+You are given two height balanced binary 
+search trees <i> T </i> and <i>T'</i>, storing <i>m</i> and <i>n</i> elements 
+respectively. Every element of tree <i>T </i> is smaller than every element of 
+tree <i>T'</i>. Every node <i>u</i> also stores height of the subtree rooted 
+at it. Using this extra information how can you merge the two trees
+in time <i> O(</i>log <i> m </i> +  log <i> n)</i>  
+(preserving both the height balance and the order)?    <P></P>
+<HR>
+
+  <LI><b><FONT COLOR="red"> ** </FONT> Complete binary tree as an efficient 
+data-structure </b><P> </P>
+  You are given an array of size <i>n</i>(<i>n</i> being a power of two).
+All the entries of the array are initialized to zero.
+You have to perform a sequence of the following online operations :
+<UL>
+<LI><b> (i) </b> <i>Add(i,x)</i> which adds <i>x</i> to the entry 
+A[<i>i</i>].
+<LI><b>(ii) </b> Report <i>sum(i,j) </i> = sum of the entries in the
+array from indices <i>i </i> to <i> j </i>for any <i> 0 < i < j <= n</i>.
+</UL>
+It can be seen easily that we can perform the first operation in <i> 
+O(</i>1<i>)</i> time whereas the second operation may cost <i>O(n)</i> in 
+worst case.
+Your objective is to perform these operations efficiently. 
+Give a data-structure which will guarantee <i>O(log n) </i>
+time per operation. (The title of the problem is a hint).
+<A HREF="#Solution-3">Hint</A>
+<P></P> 
+
+<HR>
+  <LI> <H3>Problems on Amortized Analysis</H3>  <P></P>
+  <OL>
+  <LI><b><FONT COLOR="red"> ** </FONT> Delete-min in constant time !!!</b> 
+  Consider a binary heap of size <em> n </em>, the root storing the 
+smallest element.  We know that the cost of insertion of an 
+element in the heap is <i>O(</i> log <i>n)</i> and the cost of deleting the 
+smallest element is also <i>O(</i> log <i>n)</i>. Suggest a valid potential 
+function so that the amortized cost of insertion is <i>O(</i> log <i>n)</i> 
+whereas amortized cost of deleting the smallest element is <i>O(</i> 1<i>)</i>.
+<A HREF="#Solution-4.1">Hint</A>
+ <P></P>
+ <LI><b><FONT COLOR="red"> * </FONT> Implementing a queue by two stack</b> 
+<P> </P>
+Show how to implement a queue with two ordinary stacks so that the amortized 
+cost of each <b>Enqueue</b> and each <b>Dequeue </b> operation is 
+<i>O(</i>1<i>)</i>.  
+ <P></P>
+ </OL> 
+<HR>
+
+<LI><b>Computing a spanning tree having smallest value of largest edge weight 
+</b> <P> </P>
+Describe an efficient algorithm that, given an undirected graph <i>G</i>,
+determines a spanning tree of <i>G </i> whose largest edge weight is minimum 
+over all spanning trees of <i> G</i>.<A HREF="#Solution-5">Hint </A> 
+<P></P>
+
+<HR>
+<LI><H3>Shortest Path Problems</H3> <P></P>
+<OL>
+<LI><b><FONT COLOR="red"> * </FONT>From a subset of vertices to another subset 
+of vertices</b> <P> </P>
+Given a directed graph <i> G(V,E),</i> where edges have nonnegative 
+weights. <i>S </i> and <i>D </i> are two disjoint subsets of the set of 
+vertices. Give an <i>O(|V| log |V| + |E|) </i> time algorithm to find
+the shortest path among the set of paths possible from any node in <i>S</i>
+to any node in <i> D</i>.<P></P>
+</OL>
+<P></P>
+<LI><H3>Paths in Directed Acyclic Graph </H3><P></P>
+<OL>
+<LI><b><FONT COLOR="red"> * </FONT>Counting the number of paths</b><P> </P>
+Given two nodes <i>u,v </i> in a directed acyclic graph <i>G(V,E)</i>.
+Give an <i>O(|E|)</i> time algorithm to count all the paths from <i>u</i>
+to <i>v</i>.
+<P> </P>
+<LI><b><FONT COLOR="red"> ** </FONT>Path passing through a subset of nodes</b>
+<P> </P>
+Given two nodes <i>u,v </i> and a set of vertices 
+<i>w<sub>1</sub>, w<sub>2</sub>,...,w<sub>k</sub></i> in a directed acyclic 
+graph <i>G(V,E)</i>. Give an <i>O(|E|)</i> time algorithm to output
+a path(if exists) from  <i>u</i> to  <i>v</i> which passes through each 
+of the nodes  <i>w<sub>1</sub>,...,w<sub>k</sub></i>. If there is no such path
+then your algorithm must report that <i>"no such path exists"</i>.
+<P></P>
+</OL>
+<HR>
+
+
+<P></P>
+  <LI><b><FONT COLOR="red"> *</FONT> Searching for a friend </b> <P> </P>
+You are standing at a crossing from where 
+there emerge four roads extending to infinity. Your friend is somewhere on 
+one of the four roads. <u> You do not know on which road he is and how far he 
+is from you</u>. You have to walk to your friend and the total distance 
+traveled by you must be at most a constant times the actual distance of your 
+friend from you. In terminology of algorithms, you should traverse 
+<i> O(d)</i> distance, where <i>d </i> is the distance of your 
+friend from you.
+<P> </P>
+<HR>
+
+  <LI><b>A simple problem on sorted array </b><P> </P> 
+Design an <i>O(n)</i>-time algorithm that, given a real number 
+<i>x </i> and a sorted array <i>S</i> of <i>n </i> numbers, determines whether 
+or not there exist two elements in <i>S</i> whose sum is exactly <i>x </i>.    
+<P> </P>
+<HR>
+
+  <LI><b><FONT COLOR="red"> * </FONT>Finding the decimal dominant in linear time</b> <P> </P>
+You are given <i>n</i> real numbers in an array. A number in the array is
+called a <u>decimal dominant</u> if it occurs more than <i>n/10</i> times in 
+the array. Give an <i>O(n)</i> time algorithm to determine if the given array 
+has a decimal dominant.   
+  <P></P>
+<HR>
+
+  <LI><b><FONT COLOR="red"> * </FONT> Finding the first one</b> <P></P>
+You are given an array of infinite length 
+containing zeros followed by ones. How fast can you locate the the first one 
+in the array?
+  <P></P>
+<HR>
+
+  <LI><b><FONT COLOR="red"> * </FONT> Searching for the Celebrity </b> <P></P>
+Celebrity is a person whom everybody 
+knows but he knows nobody. You have gone to a party. There are total <i>n</i> 
+persons in the party. Your job is to find the celebrity in the party. You can 
+ask questions of the form <u>Does Mr. <i> X </i> know Mr. <i> Y  </i> ?</u>. 
+You will get a binary answer for each such question asked. Find the celebrity 
+by asking only <i> O(n) </i> questions. 
+  <P></P>
+<HR>
+
+  <LI><b><FONT COLOR="red"> ** </FONT> Checking the Scorpion</b> <P></P>
+An <i> n</i>-vertex graph is a <i> scorpion</i>
+if it has a vertex of degree 1(the sting) connected to a vertex of degree two 
+(the tail) connected a vertex of degree <i>n-2</i> (the body) connected to the
+other <i>n-3</i> (the feet). Some of the feet may be connected to other feet.
+Design an algorithm that decides whether a given adjacency matrix represents
+a scorpion by examining only <em> O(n) </em> entries.
+<A HREF="#Scorpio">Hint</A>
+
+<BR>
+<IMG SRC="Figures/scorpion.gif" ALT="A Scorpion Graph" ALIGN="center" HEIGHT="300" Width="400" Border="0">
+  <P></P>
+<HR>
+
+  <LI><b><FONT COLOR="red"> ** </FONT>  Endless list </b> <P></P>
+You are having a pointer to the head of singly 
+linked list. The list either terminates at null pointer or it loops back to 
+some previous location(not necessarily to the head of the list). You have to 
+determine whether the list loops back or ends at a null location in time 
+proportional to the length of the list. You can use at most a constant 
+amount of extra storage.
+  <P></P>
+<HR>
+
+  <LI><b><FONT COLOR="red"> *** </FONT> Nearest Common Ancestor</b><P></P>
+  Given a rooted tree of size <i> n </i>. You receive a series of online 
+queries : <u> "Give nearest common ancestor of <i> u,v </i>" </u>. Your 
+objective is to preprocess the tree in <i> O(n) </i> time to get a data 
+structure of size <i> O(n) </i> so that you can answer any such query in 
+<i> O(log n) </i> time.
+
+</OL>
+
+
+<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+
+<center>
+<FONT COLOR = "RED"> <H1>Solutions </H1> </FONT>
+</center>
+<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+
+
+<A NAME="Solution-1"></A> 
+<center>
+<FONT COLOR="GREEN"> <H2> Exploring a Binary Heap </H2> </FONT>
+</center>
+<FONT COLOR="Red"> Hint : </FONT>
+
+I think you are trying to find the <i>k</i>th largest element in the heap in
+<i>O(k)</i> time in order to solve this problem. But actually, you 
+<b>need not </b> find the <i>k</i>th 
+largest element in the heap to solve this problem. You will be able to
+solve the problem if you are able to find whether the number of elements in 
+the heap which are greater than <i>x</i> are more/less/equal to <i>k </i>. 
+Now exploit the definition of the heap, to do this task in <i>O(k)</i> time.
+Note that you have extra <i> O(k) </i> storage space to use.
+<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+
+
+
+
+
+
+<A NAME="Solution-3">
+<center>
+<FONT COLOR="GREEN"> <H2> Complete Binary Tree as an efficient data-structure
+</H2> </FONT>
+</center>
+</A> <FONT COLOR="Red"> Hint : </FONT>
+Consider a complete binary tree with its leaves
+as the entries of the array A, i.e. the <i>i </i>th leaf of the tree is
+A[<i>i</i>]. 
+Every internal node of the tree can be used to store some number </u>. 
+<UL>
+</UL>
+The skeleton of the data-structure is shown in the following figure :
+<UL>
+</UL>
+<IMG SRC="Figures/bintree.gif" ALT="Skeleton of the data-structure" ALIGN="center"
+HEIGHT="400" WIDTH="650" BORDER="0">
+<P></P>
+Fill in the details of the data-structure and give <i>O(log n)</i> time
+algorithms for both the operations. 
+<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+
+
+<A NAME="Solution-4.1">
+<center>
+<FONT COLOR="GREEN"> <H2> 
+Delete-min in constant amortized time
+</H2> </FONT>
+</center>
+<FONT COLOR="Red"> Hint : </FONT>
+This is a very nice exercise to understand the technique of Amortized Analysis.
+You know that actual cost of <b>Delete-min</b> is <i>O(log n)</i>. So you have
+to choose a potential function such that during the <b>Delete-min</b> 
+operation, change in the potential function is <i> - O(log n) </i>(to balance 
+the actual cost).
+<BR>
+Now concentrate on the tree structure of the binary heap to realize what 
+happens when the minimum element is deleted. Look on the following diagram
+to see what is happening during <b>Delete-min</b> :
+<IMG SRC="Figures/delete.gif" ALT="Picture of Delete-min operation in a heap" ALIGN="center" HEIGHT="300" WIDTH="800"> 
+<P>
+Compare the two tree structures above. What is missing in the tree after 
+<b>Delete-min</b>. Two structures are the same except a node is missing 
+and that too from leaf level. Can you now guess the potential function? If not,
+then scroll down to see the solution.
+<BR>
+<BR>
+<BR>
+<BR>
+It is sum of the depths of all the nodes in the heap. Now verify it.
+</P>
+<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+
+
+<A NAME="Solution-5">
+<center>
+<FONT COLOR="GREEN"> <H2> 
+Computing a spanning tree having smallest value of largest edge weight 
+</H2> </FONT>
+</center>
+<FONT COLOR="Red"> Hint : </FONT>
+First prove that largest edge weight of the minimum spanning tree is minimum 
+over all spanning trees of <i> G</i>(use the fact that the an edge belongs to
+the minimum spanning tree if it is of the least weight in the cut-set defined
+by the tree and the edge). 
+<BR>
+Now give any efficient algorithm for computing minimum spanning tree.
+<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+
+
+
+
+<A NAME="Scorpio">
+<center>
+<FONT COLOR="GREEN"> <H2> Checking the Scorpion </H2> </FONT>
+</center>
+<FONT COLOR="Red"> Hint : </FONT>
+
+Some simple observations from the definition of scorpion graph are :
+<OL>
+<LI> The only vertex of degree <i>n-2</i> is <i>body</i>.
+<LI> There is no edge between any foot and the sting.
+<LI> There is no edge between any foot and the tail.
+</OL>
+We shall use above observations to give the <i>O(n)</i> time algorithm
+for verifying whether given graph is a scorpion graph or not.
+<BR>
+Let <i>M</i> be the adjacency matrix of the graph. 
+<BR>
+Pick a vertex <i>v</i> arbitrarily. Let <i>d</i> be the degree of <i>v</i>(can
+be found out from the adjacency matrix in time <i>O(n)</i>). 
+From the definition of scorpion it is clear that if <i>d </i> is 1,2 or n-2, 
+we can easily check whether the graph is scorpion or not(convince yourself). 
+Let us consider the case when $2 < d < n-2$. Clearly  <i>v</i> must be a foot.
+Now Let  <i>A</i>  be the set of vertices which are adjacent to <i>v</i>,
+and  <i>B</i> be the set of vertices which are not adjacent to  <i>v</i>.
+<BR>
+<b>Observations :</b> 
+<UL>
+<LI> The  <i>body</i> must belong to set  <i>A</i>.
+<LI> The <i>sting</i> must belong to set  <i>B</i>. 
+</UL>
+Now we shall successively eliminate the verticess of set  <i>A</i> and 
+<i>B</i> which are feet. Finally we shall  
+be left with  <i>A</i> or  <i>B</i> containing single vertex. At this point 
+you can easily verify in <i>O(n)</i> time whether the given graph is scorpion.
+Now we shall describe a way to successively eliminate the vertices of set 
+<i>A</i> and <i>B</i> until one of them becomes a singleton set.
+<BR>
+
+<UL>
+Pick two nodes <i>x,y</i> from set <i>A</i>. 
+<LI>
+If <i>M[x,y] =0</i>, then throw both of them away since none of them can be a 
+<i>body</i>. 
+<LI>else
+<UL>
+pick one node say <i>z</i> from <i>B</i>. 
+<LI>
+If <i>M[x,z] = 1</i> and <i>M[y,z]= 1</i>, throw <i>z</i> away since 
+<i>z</i> can't be <i>sting</i>.
+<LI>
+If <i>M[x,z] = 1</i> and <i>M[y,z]= 0</i>, throw <i>y</i> away since 
+<i>y</i> can not be <i>body</i>.
+<LI>
+If <i>M[x,z] = 0</i> and <i>M[y,z]= 1</i>, throw <i>x</i> away since 
+<i>x</i> can not be <i>body</i>.
+<LI>
+If <i>M[x,z]=M[y,z]=0</i>, then pick one more vertex say <i>w</i> from set <i>B</i>.
+Try to eleiminate <i>x</i> or <i>y</i> if possible as in case of <i>z</i>.
+If we are still stuck i.e. <i>M[x,w]=M[y,w]=0</i>, then through both 
+<i> x,y</i> since none of them can be a <i> body </i>.
+</UL>
+<u> So by a constant number of lookups of the adjacency matrix we are able to 
+eliminate atleast one  foot from set <i>A</i> or <i>B</i>.</u>
+</UL>
+<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+
+
+
+
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+\beamer@endinputifotherversion {3.24pt}
+\beamer@sectionintoc {1}{The Problem}{3}{0}{1}
+\beamer@sectionintoc {2}{Previous Methods}{4}{0}{2}
+\beamer@sectionintoc {3}{Algorithm}{11}{0}{3}
+\beamer@sectionintoc {4}{Extensions and Results}{17}{0}{4}

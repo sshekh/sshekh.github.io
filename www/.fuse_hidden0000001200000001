@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Some interesting stuff</TITLE>
+<META NAME="description" CONTENT="Some interesting stuff">
+<META NAME="keywords" CONTENT="Homepage">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Homepage.css">
+
+<LINK REL="next" HREF="node3.html">
+<LINK REL="previous" HREF="node1.html">
+<LINK REL="up" HREF="Homepage.html">
+<LINK REL="next" HREF="node3.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html24"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html22"
+  HREF="Homepage.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html16"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html25"
+  HREF="node3.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html23"
+  HREF="Homepage.html">Homepage of Saurav Shekhar</A>
+<B> Previous:</B> <A NAME="tex2html17"
+  HREF="node1.html">About me</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00020000000000000000">
+Some interesting stuff</A>
+</H1>
+<a href="http://research.microsoft.com/en-us/um/people/leino/puzzles.html">Here</a> is a good puzzles site. 
+<BR>
+<a href="http://home.iitk.ac.in/~sshekh/codes/Mandelbrot.py.html">Here</a> is a strange code that generates a Mandelbrot fractal
+ when run 
+<BR>
+<a href="http://home.iitk.ac.in/~sshekh/codes/gangnam.py.html">Here</a> is a code for generating a plot given a sequence of points in 2-D plane 
+ as input. It has been written by <a href="http://community.topcoder.com/tc?module=MemberProfile&cr=15117368">this</a> great man.
+<BR>
+<a href="http://home.iitk.ac.in/~sshekh/codes/notebook.html">Here</a> is the stanford ICPC team notebook.
+<BR>
+<a href="http://home.iitk.ac.in/~sshekh/codes/BitTwiddling Hacks.html">Here</a> are some Bit hacks.
+<BR>
+<a href="http://home.iitk.ac.in/~sshekh/codes/vim.pdf">Here</a> is a vim tutorial.
+<P>
+<BR>
+<!---
+<a href="http://home.iitk.ac.in/~sshekh/codes/bookmarks_6_26_14.html">Here</a> are my bookmarks.
+--->
+<BR><HR>
+<ADDRESS>
+Saurav Shekhar
+2014-06-26
+</ADDRESS>
+</BODY>
+</HTML>
