@@ -1,0 +1,421 @@
+\documentclass[9pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage[usenames, dvipsnames]{xcolor}
+\usepackage{nopageno}
+\usepackage{hyperref}
+
+\renewcommand{\arraystretch}{1.5}
+\leftmargin=0.25in
+\oddsidemargin=0.25in
+\textwidth=6.0in
+\topmargin=-1.2in
+\textheight=10.00in
+
+\raggedright
+\pagestyle{empty}
+%\pagenumbering{arabic}
+
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}
+}
+
+\newcommand{\lineover}{
+	\begin{changemargin}{-0.05in}{-0.10in}
+		\vspace*{-9pt}
+		\hrulefill \\
+		\vspace*{-2pt}
+	\end{changemargin}
+}
+
+\newcommand{\header}[1]{
+	\begin{changemargin}{-0.5in}{-0.5in}
+		\scshape{#1}\\
+  	\lineover
+	\end{changemargin}
+}
+
+\newcommand{\name}[1]{
+	%\begin{changemargin}{0.0in}{0.0in}
+	\begin{center}
+	  	{\LARGE \scshape {#1}}
+	\end{center}
+                %\lineover
+	%\end{changemargin}
+}
+
+\newcommand{\contact}[5]{
+	\begin{changemargin}{-0.65in}{-0.65in}
+		\begin{multicols}{2}
+			{#1}\\ \smallskip 
+			{#2}\\ \smallskip
+			{#3}\\ \smallskip
+			{#4}\\ \smallskip 
+			{#5}\\ \smallskip
+		\end{multicols}
+	\end{changemargin}
+}
+
+\newenvironment{body} {
+	\vspace*{-16pt}
+	\begin{changemargin}{-0.6in}{-0.65in}
+  }	
+	{\end{changemargin}
+}	
+
+\newcommand{\school}[4]{
+	\textbf{#1} \hfill \emph{#2\\}
+	#3\\ 
+	#4\\
+}
+
+% END RESUME DEFINITIONS
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Name
+\name{Saurav Shekhar}
+\contact{MSc Computer Science}{Department of Informatik}{ETH Zurich}
+{{\hspace{130pt}}sauravshekhar01@gmail.com} {{\hspace{180pt}}(+41) 764103118}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Education
+\header{Education}
+
+\vspace{4pt}
+	\begin{tabular}{ | l | l | l | l | }
+	\hline	
+	\textbf{Year} & \textbf{Degree/Certificate} & \textbf{Institute} & \textbf{CGPA/Percentage} \\ \hline
+	2018 (expected) & Masters of Science & ETH Z{\"u}rich & - \\ \hline
+	2016 & Bachelor of Technology & Indian Institute of Technology, Kanpur & 9.1/10 \\ \hline
+	%2012 & AISSCE, XII (CBSE) & Jawahar Vidya Mandir, Ranchi (C.B.S.E.) & 95.2\%  \\ \hline
+	%2010 & AISSE, X (CBSE) & DAV Public School, Gumla(C.B.S.E.) & 10.0/10.0  \\ \hline
+	\end{tabular}
+
+% Academic Achievements
+%\vspace{3 mm}
+
+\header{Internships}
+\begin{body}
+ \vspace{14pt}
+  \begin{description}
+  \item[\normalsize{Real-time Market Data Monitor}] \hfill \textit{May '15 - July '15} \\
+  \textit{Summer internship at Goldman Sachs, Bangalore} \\
+  Application is capable of consuming market data from various sources. 
+  Functionality includes monitoring and alerting on stale, missing or malformed data
+  \begin{itemize}
+   \item Implemented monitoring and alerting for latency spikes and various market data sanity checks
+   \item Improved market data subscription
+   \item Abstracted out various monitoring and alerting functionalities so that these can be reused across multiple market data source systems
+   \item Technology Used: Java, JNI, Bash, Reuters RFA API
+  \end{itemize}
+  \end{description}
+
+ \begin{description}
+   \item [\normalsize{Personalized feed algorithm}] \hfill \textit{May '16 - August '16} \\
+   \textit{Internship at ShareChat, a vernacular language social media startup, Bangalore} \\
+    Aim of the project was to analyze user's activity on the app's home feed and design 
+    a personalized feed algorithm for 700k active users of the application.
+    \begin{itemize}
+     \item Designed a new wilson score based popularity metric for posts.  \\ 
+     \item Experimented with collaborative filtering techniques like implicit-feedback matrix factorization, user-user and item-item similarity
+	   for computing user-post rating and developed methods to compute user-tag relevance.
+     \item Used RankSVM to compute a linear model for user-post relevance.
+    \end{itemize}
+  \end{description}
+  
+\end{body}
+
+%\vspace{5 mm}
+\header{Projects}
+%\vspace{2 mm}
+\begin{body}
+	\vspace{14pt}
+	
+	\begin{description}
+      
+     \item[\normalsize{}] 
+      
+	 \item[\normalsize{Object detection and classification in Surveillance videos}] \hfill  \textit{Jan '16 - Apr '16} \\
+	  \textit{Course project in Machine Learning, tools and techniques under Prof. Harish Karnick, IIT Kanpur}
+	  \begin{itemize}
+            \item Aim of the project was to detect and classify objects from the university's survelliance videos into 
+                  pre-defined classes (2/4 wheelers, pedestrian etc)
+            \item Used selective search and background subtraction techniques to extract candidate region proposals for classification
+            \item Extracted feature using various methods like SIFT, HOG, Convolutional Neural Networks, Autoencoders and Restricted
+                  Boltzman Machines. Used classification algorithms like Random Forests, SVM and Decision trees and compared the results.
+            \item On image classification, achieved an accuracy of more than 90\% using CNNs.
+	  \end{itemize}
+
+	 \item[\normalsize{Identifying age, gender and health from brain fMRI images}] \hfill  \textit{Sept '16 - Dec '16} \\
+           \textit{Course project (Kaggle challenges) in Machine Learning under Prof. Joachim Buhmann, ETH Zurich}
+	  \begin{itemize}
+            \item Used segmentation (into white and grey matter) and extracted features like canny edges, SIFT, Histograms 
+              from input brain fMRI images
+            \item Used SVM's, Logistic Regression, Random Forests and ensembles like Adaboost, bagging to improve accuracy
+	  \end{itemize}
+
+	 \item[\normalsize{Online algorithms for large datasets}] \hfill  \textit{Sept '16 - Dec '16} \\
+           \textit{Course project in Data Mining under Prof. Andreas Krause, ETH Zurich}
+	  \begin{itemize}
+            \item Implemented online algorithms for similarity detection (Locality sensitive hashing), Clustering 
+              (coreset construction followed by k-means), Image Classification (SVMs using Random Fourier Features) and 
+              News recommendation (linUCB) 
+            \item Placed in top 15\% on the leaderboards
+	  \end{itemize}
+
+        %\item[\normalsize{Robust PCA via Convex Optimization}] \hfill \textit{Apr '16} \\
+	%  \textit{Term paper in Convex Optimization under Prof. Ketan Rajawat, IIT Kanpur}
+	%  \begin{itemize}
+	%  \item Studied and compared the current best algorithms for low rank matrix recovery like the accelerated proximal
+        %    gradient algorithm (APG), Augmented Lagrange Multiplier method (ALM), Dual method etc.
+        %  \item Ran simulations with different size and error matrix and compared results of all algorithms on different metrices 
+        %      like time taken, reconstruction error, error-rate with iterations etc.
+	%  \end{itemize}
+
+            \pagebreak
+	  \item[\normalsize{Random Graphs}]	\hfill 	\textit{July '15 - Nov '15} \\
+            \textit{Undergraduate project under Prof. Surender Baswana, IIT Kanpur} 
+            \hfill \href{http://home.iitk.ac.in/~sshekh/cs498a/report.pdf}{\textit{\textcolor{ProcessBlue}{link to report}}}
+	  \begin{itemize}
+	   \item Studied Erdos-Renyi phase transitions and expected linear time algorithms for finding 
+                biconnected components in Random graphs.
+	   \item Worked on average case analysis of an incremental algorithm for maintaining DFS tree in an undirected graph 
+	  \end{itemize}
+	  
+	  \item[\normalsize{Concurrent data Structures in Haskell}] \hfill  \textit{July '15 - Nov '15} \\
+	  \textit{Course project in Functional Programming under Prof. Piyush Kurur, IIT Kanpur}
+	  \begin{itemize}
+	   % \item Aim was to develop a non-blocking queue data structure in Haskell 
+	   \item Implemented Michael \& Scott's lock-free queue algorithm in Haskell
+	   \item Used atomic-primops package for CAS and other atomic operations
+	   \item Project developed as an open source Cabal Package
+	  \end{itemize}
+	
+%	  \item[\normalsize{Intelligent Surveillance System}] \hfill  \textit{May '14 - July '14}\\
+%	  \textit{Summer project under Prof. Harish Karnick, IIT Kanpur}
+%	  \begin{itemize}
+%	  \item Involved improving the video surveillance system for traffic monitoring in the campus of IIT Kanpur. Studied various methods for background subtraction and motion detection (optical flow) for selecting candidate
+%		frames that contain useful data in the surveillance video
+%	  \item Implemented a real-time system for adaptive background subtraction using Gaussian Mixture Model
+%	  \item Extracted candidate license plate areas from the images and enhanced those using morphological operations as a first
+%		step towards Optical Character Recognition
+%	  \item Implemented Viola-Jones object detection framework for vehicle classification using OpenCV. 		
+%	  \end{itemize}
+
+% 	\item[\normalsize{Scala to MIPS Assembly Compiler}] \hfill \textit{Jan '15 - Apr '15} \\
+% 	\textit{Course Project in Compilers under prof. Subhajit Roy, IIT Kanpur}
+% 	\begin{itemize}
+% 	 \item Programmed a Scala to MIPS cross compiler with support for basic datatypes, conditional statements,
+% looping statements, arrays, nested functions, recursion and object oriented features
+% 	 \item Awarded as the second best project for the course out of 22 teams
+% 	\end{itemize}
+% 	
+	\item[\normalsize{Extension of NACHOS}]  \hfill \textit{Aug '14 - Nov '14} \\
+	\textit{Course Project in Operating Systems under prof. Mainak Chaudhuri, IIT Kanpur}
+	\begin{itemize}
+	 \item Extended the standard system call library of NachOS and implemented Fork, Exec, Join, Yield, Sleep, Exit system calls
+	 \item Implemented process scheduling algorithms like UNIX scheduling, FIFO, Round robin, SJF and non-preemptive scheduling and assessed the results
+	 \item Programmed page replacement algorithms: Random allocation, FIFO, LRU and LRU-clock and evaluated relative performance
+	\end{itemize}
+	
+	 \item[\normalsize{Advances in Generative models with deep learning}] \hfill  \textit{Jan '16 - Apr '16} \\
+	  \textit{Course project in Probabilistic Machine Learning under Prof. Piyush Rai, IIT Kanpur}
+	  \begin{itemize}
+            \item Studied two recent generative models that use deep learning techniques, deep exponential families
+                  and generative adversarial networks.  
+            \item Used an implemntation of Deep Exponential Families for topic modelling on KOS blog entries from the
+                  UCI ML Bag of Words dataset
+            \item Used a Theano implementation of GAN to generate images from MNIST and CIFAR datasets.
+	  \end{itemize}
+
+	 
+	 \item[\normalsize{R on Hadoop}]	\hfill 	\textit{Aug '14 - Nov '14} \\
+	 \textit{Course project in CS52 under prof. Arnab Bhattacharya, IIT Kanpur}
+	 \begin{itemize}
+	  \item Setup a Hadoop cluster on an IBM Bladeserver and install RHadoop packages on the server 
+	  \item Allowed distributed processing of R-code on the Hadoop cluster
+	  \item This project was selected as one of the best in the course
+	 \end{itemize}
+ 
+% 	   \item[\normalsize{Projection algorithms for feasibility of Linear Programs}] \hfill  \textit{(May '14 - July '14)}\\
+% 	   \textit{Summer project under prof. S K Mehta}
+% 	   \begin{itemize}
+% 	   \item Studied various Linear programming algorithms like simplex and interior point methods.
+% 	   \item Tried heuristic methods for finding the vector of fastest convergence.
+% 	   \item Studied Relaxation method for convex feasibility by Agmon, Motzkin and Schoenberg.
+% 	  \end{itemize}
+%	  \item[\normalsize{Advanced audio equalizer}]  \hfill \textit{May '13 - June '13}\\
+%	  \textit{Summer Project under Programming Club, IIT Kanpur} 
+%	  \begin{itemize}
+%	  \item Devloped an audio equalizer in Java that used Fourier transform to break a song into its frequency range. 
+%	  \item Variable ranges of frequency could be filtered out accurately using GUI.
+%	  \item Used Minim Audio library and Processing development Enviroment. 
+%	  \end{itemize}
+%\clearpage
+	 \end{description}
+	\smallskip
+\end{body}
+	  
+%\header{Short Projects}
+%\vspace{2 mm}
+%\begin{body}
+%	\vspace{14pt}
+%	\begin{description}
+% 	  {\bf Yahoo HackU! 2013} 	\hfill \textit{(August '13)} \\
+% 	  \begin{itemize}
+% 	  \item
+% 	  \item Made a facebook app that could post a picture to any facebook post. Also made a chrome addon to add text to an image 
+% 	  and then upload that pic. 
+% 	  \item The user could make a meme of an image and then post it to facebook on the fly without having to make it on a different 
+% 	  site and then download it. 
+% 	  \item The posting part was done by using a Facebook Graph APIs and editing of image was done by HTML canvas.
+% 	  \end{itemize}
+% 	
+	  
+% 	  {\bf Oz programming language interpreter} \hfill \textit{(Sept '14)} \\
+% 	  \textit{Course project in Principles of Programming Languages(CS350) under Prof. Satyadev Nandakumar, IIT Kanpur}
+% 	  \begin{itemize}
+% 	  \item
+% 	  \item Implemented a meta-circular interpreter for a declarative sequential model of Oz.
+% 	  \item Implemented the semantic stack and single assignment store using an easy-to-parse abstract syntax tree.
+% %	  \item Also studied the declarative concurrent model of Oz programming language.
+% 	  \end{itemize}
+% 	  
+%	  %\href{http://hackyourworld.org/~saurav/takneek/}
+%	  {\bf Takneek,IITK 2013}	\hfill \textit{(Aug '13)} \\  
+%	  \begin{itemize}
+%	  \item
+%	  \item Implemented an applicaton to search through timeline of a given friend of the user or the user himself based on the given 
+%	  time interval and keywords and auto comment on the search results.
+%	  \item Used Facebook's SDK and fuse.js for robust search. Won 1st place.
+%	  \end{itemize}
+	  
+%	  {\bf Cuckoo Hashing} \hfill \textit{Apr '15} \\
+%	  \textit{Term paper in Randomized Algorithms under Prof. Surender Baswana, IIT Kanpur}
+%	  \begin{itemize}
+%	  \item 
+%	   \item Studied Cuckoo Hashing and its average case runtime analysis
+%	  \end{itemize}
+	  
+%	  {\bf Planar Graph Visualisation} \hfill \textit{Jan '13 - Apr '13} \\ 
+%	  \textit{Semester project under ACA, IIT Kanpur}  
+%	  \begin{itemize}
+%	  \item
+%	  \item Studied various methods like Coffman-Graham algorithm to minimize crossings in Planar Graph Drawing
+%	  \item Studied basic Graph Theory along with various properties of Planar Graphs and heuristics of Graph drawing
+%	  \end{itemize}
+	  
+% 	  {\bf Roulette} \hfill {\it (August '12)} \\ 
+% 	  Electrovate 12, circuit design competition under Electronics club	
+% 	  \begin{itemize}
+% 	  \item
+% 	   \item Designed and implemented a mini roulette using a breadboard and basic logic gates.
+% 	   \item Used {\bf XOR gates} to implement flip-flop. Won {\bf most innovative circuit} award.
+% 	  \end{itemize}
+
+	  
+%	\end{description}
+%	\smallskip
+%\end{body}
+
+\header{Academic}
+%\vspace{2 mm}
+\begin{body}
+	\vspace{14pt}
+	\begin{changemargin}{0.15in}{0.15in}
+	\begin{itemize}
+	  \item ETH Excellence Scholarship and Opportunity award, awarded to 3 students among $\approx$ 150 students
+            admitted to MSc program in the year 2016
+	  \item Academic Excellence Award, IIT Kanpur, 2012-13 
+	  \item Teaching Assistant for Data Structures and algorithms course, year 2015-16.
+	  %\item Secured All India Rank {\bf 958} in {\bf IIT-JEE} among 500,000 candidates.
+	  %\item Secured All India Rank {\bf 554} in {\bf AIEEE} among 1,000,000 candidates.
+	  %\item Qualified Regional Mathematical Olympiad(RMO) 2012
+	  \item Selected in Top 1\% of each of the National Standard Examinations in Physics (NSEP), Chemistry (NSEC) and Astronomy (NSEA) and Regional Mathematics Olympiad.
+	\end{itemize}
+	\end{changemargin}
+\end{body}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Relevant Courses
+% \vspace{3 mm}
+% \header{Relevant Courses}
+% 
+% \vspace{3 mm}
+% \begin{body}
+% 	\vspace{4pt}
+% 	\begin{changemargin}{0.15in}{0.15in}
+% 	\begin{multicols}{3}
+%         Operating Systems  \\
+%         Principles of Programming languages \\
+% 	Functional Programming \\
+% 	Applied Stochastic Processes \\
+% 	Probabilistic Machine Learning \\
+% 	Convex Optimization \\
+% 	Algorithms Lab $^{*}$ \\
+% 	Machine Learning $^{*}$ \\
+% 	Data Mining $^{*}$ \\
+% 	Probabilistic AI $^{*}$ \\
+% 	Advanced Systems lab $^{*}$
+% 	\end{multicols}
+% 	\end{changemargin}
+% 	\footnotesize $^{*}$ Expected to be completed by Feb' 17
+% \end{body}
+
+\vspace{1 mm}
+\header{Miscellanous}
+%\vspace{2 mm}
+\begin{body}
+	\vspace{14pt}
+	\begin{changemargin}{0.15in}{0.15in}
+	\begin{itemize}
+          \item $1^{st}$ place from the ETH Hub (top $50$ worldwide among 3000 teams) in Google Hash Code online Qualification round.
+              Selected for the finals to be held at Google Paris in April 2017.
+          \item Ranked $10^{th}$ among 60 teams and awarded a bronze medal at ACM ICPC SWERC 2016 Regionals
+	  \item $6^{th}$ place among top 25 teams selected (among 8000 in online rounds) for the Codechef Snackdown onsite finale 2015 \\
+	  %\item Secretary, Programming Club ( \emph{Academic Year 2013-2014} ) - Assisted in organizing Programming competitions 
+	   % and took introductory programming lecture for the freshers.
+	  %\item Worked with a team of 5 members on creating and testing the problems for IOPC, the annual 24 hr long algorithmic programming contest during 
+	%	Techkriti 2015. 901 teams participated in the contest.
+ 	  \item Advanced to Round 2 of Facebook Hackercup 2013 (position 287), and Round 2 of Google Code Jam 2014 \\
+	  %\item Secured position 11 and 20 among 6000 Indian participants in Codechef July challenge and June challenge 2014 respectively \\
+	  \item Secured $1^{st}$ place in IHPC, high performance computing contest and $2^{nd}$ place in Battlecity, AI bot programming challenge in Techkriti 14. \\
+%	  time interval and keywords and auto comment on the search results.
+%	  \item Used Facebook's SDK and fuse.js for robust search. Won 1st place.
+	 %\item Attended the large scale optimization for machine learning summer school, 2016 at IISC, Bangalore \\
+         %\item Attended the mini symposium on Computation and Optimization held at IIT Kanpur \\
+	    %\item Github Handle \href{http://github.com/sshekh} {\emph{{\textit{\textcolor{ProcessBlue}{sshekh}}}}} \\
+	    %\item Linkedin Profile \href{https://www.linkedin.com/in/saurav-shekhar-16786958} {saurav-shekhar-16786958} \\
+	\end{itemize}
+        \end{changemargin}
+\end{body}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Skills
+\vspace{3 mm}
+\header{Technical Skills}
+
+\vspace{3 mm}
+\begin{body}
+	\vspace{14pt}
+	\begin{changemargin}{0.15in}{0.15in}
+	\emph{\textbf{Programming Languages: }}{} C, C++ (Proficient), Java, Python, Haskell, Perl, HTML, PHP, Bash Shell Scripting, nodejs\\
+	\emph{\textbf{Software: }}{}  Torch7, Tensorflow, Caffe, MySQL, MongoDB, GIT, MIPS Assembly, \LaTeX, Gnuplot, Octave, MATLAB, Amazon Web Service \\
+	\end{changemargin}
+\end{body}
+
+\end{document}
