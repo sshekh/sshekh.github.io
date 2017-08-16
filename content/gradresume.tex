@@ -3,6 +3,7 @@
 \usepackage{amssymb}
 \usepackage{url}
 \usepackage{multicol}
+\usepackage{multirow}
 \usepackage[usenames, dvipsnames]{xcolor}
 \usepackage{nopageno}
 \usepackage{hyperref}
@@ -49,21 +50,21 @@
 
 \newcommand{\name}[1]{
 	%\begin{changemargin}{0.0in}{0.0in}
-	\begin{center}
+	%\begin{center}
 	  	{\LARGE \scshape {#1}}
-	\end{center}
+	%\end{center}
                 %\lineover
 	%\end{changemargin}
 }
 
-\newcommand{\contact}[5]{
+\newcommand{\contact}[4]{
 	\begin{changemargin}{-0.65in}{-0.65in}
 		\begin{multicols}{2}
-			{#1}\\ \smallskip 
-			{#2}\\ \smallskip
-			{#3}\\ \smallskip
-			{#4}\\ \smallskip 
-			{#5}\\ \smallskip
+			\name{{#1}}\vfill\null % this is name
+			\columnbreak
+			{#2}\\	
+			{#3}\\ 
+			{#4}\\ 
 		\end{multicols}
 	\end{changemargin}
 }
@@ -75,11 +76,6 @@
 	{\end{changemargin}
 }	
 
-\newcommand{\school}[4]{
-	\textbf{#1} \hfill \emph{#2\\}
-	#3\\ 
-	#4\\
-}
 
 % END RESUME DEFINITIONS
 
@@ -87,53 +83,57 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Name
-\name{Saurav Shekhar}
-\contact{MSc Computer Science}{Department of Informatik}{ETH Zurich}
-{{\hspace{130pt}}sauravshekhar01@gmail.com} {{\hspace{180pt}}(+41) 764103118}
+\contact{Saurav Shekhar}
+{{\hspace{180pt}}(+41) 764103118}
+{{\hspace{130pt}} \href{mailto:sauravshekhar01@gmail.com}{sauravshekhar01@gmail.com}}
+{{\hspace{180pt}} \href{https://sshekh.github.io/}{sshekh.github.io}}  
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Education
 \header{Education}
 
 \vspace{4pt}
-	\begin{tabular}{ | l | l | l | l | }
-	\hline	
-	\textbf{Year} & \textbf{Degree/Certificate} & \textbf{Institute} & \textbf{CGPA/Percentage} \\ \hline
-	2018 (expected) & Masters of Science & ETH Z{\"u}rich & - \\ \hline
-	2016 & Bachelor of Technology & Indian Institute of Technology, Kanpur & 9.1/10 \\ \hline
-	%2012 & AISSCE, XII (CBSE) & Jawahar Vidya Mandir, Ranchi (C.B.S.E.) & 95.2\%  \\ \hline
-	%2010 & AISSE, X (CBSE) & DAV Public School, Gumla(C.B.S.E.) & 10.0/10.0  \\ \hline
+	\renewcommand{\arraystretch}{1}
+	\begin{tabular}{rll}
+	2016- & \textbf{MSc Computer Science},  ETH Z{\"u}rich  &- \\
+		  & ESOP scholar, awarded to 3 students among 150 in MSc Computer Science &\\\\
+2012-2016 & \textbf{B.Tech Computer Science},  Indian Institute of Technology, Kanpur & 9.1/10 \\ 
+		  &  Academic Excellence Award for year 2012-13 & \\\\
 	\end{tabular}
 
-% Academic Achievements
-%\vspace{3 mm}
+%\header{Research Interests}
+%\header{Publications :(}
 
-\header{Internships}
+\header{Professional experience}
 \begin{body}
  \vspace{14pt}
+
   \begin{description}
+  	
+  \item[\normalsize{Recurrent Neural Networks in ROOT}] \hfill \textit{May '17 - Ongoing} \\
+  \textit{Google Summer of Code project under CERN-HEP Software Foundation, Geneva}
+  \begin{itemize}
+  	\item Project aims at introducing Recurrent Neural Toolkit in Tool for Multi Variate Analysis (TMVA) Module in the ROOT data analysis framework 
+   \item Features include GPU support (using CuBLAS), BLAS and multi-threaded training
+   support for CPUs
+   \item Restructured the entire Deep Learning module in TMVA to better suit advanced deep learning architectures like CNNs, RNNs and Autoencoders. Benchmarking on ECAL images dataset for event classification in particle physics
+  \end{itemize}
+    	
   \item[\normalsize{Real-time Market Data Monitor}] \hfill \textit{May '15 - July '15} \\
-  \textit{Summer internship at Goldman Sachs, Bangalore} \\
-  Application is capable of consuming market data from various sources. 
-  Functionality includes monitoring and alerting on stale, missing or malformed data
+  \textit{Summer internship at Goldman Sachs, Bangalore} 
+  %Application is capable of consuming market data from various sources. 
+  %Functionality includes monitoring and alerting on stale, missing or malformed data
   \begin{itemize}
    \item Implemented monitoring and alerting for latency spikes and various market data sanity checks
-   \item Improved market data subscription
-   \item Abstracted out various monitoring and alerting functionalities so that these can be reused across multiple market data source systems
-   \item Technology Used: Java, JNI, Bash, Reuters RFA API
+   \item Improved market data subscription and abstracted out various monitoring and alerting functionalities so that these can be reused across multiple market data source systems
+   %\item Technology Used: Java, JNI, Bash, Reuters RFA API
   \end{itemize}
-  \end{description}
-
- \begin{description}
+ 
    \item [\normalsize{Personalized feed algorithm}] \hfill \textit{May '16 - August '16} \\
-   \textit{Internship at ShareChat, a vernacular language social media startup, Bangalore} \\
-    Aim of the project was to analyze user's activity on the app's home feed and design 
-    a personalized feed algorithm for 700k active users of the application.
+   \textit{Internship at ShareChat, a vernacular language social media application, Bangalore} \\
     \begin{itemize}
-     \item Designed a new wilson score based popularity metric for posts.  \\ 
-     \item Experimented with collaborative filtering techniques like implicit-feedback matrix factorization, user-user and item-item similarity
-	   for computing user-post rating and developed methods to compute user-tag relevance.
-     \item Used RankSVM to compute a linear model for user-post relevance.
+ 	 \item Analyzed user's activity on the app's home feed and designed a new wilson 	score based popularity metric for posts. Tried collaborative filtering techniques 
+	  for computing user-post relevance.
     \end{itemize}
   \end{description}
   
@@ -147,35 +147,68 @@
 	
 	\begin{description}
       
-     \item[\normalsize{}] 
+      \item[\normalsize{Dialogue generation using Seq2seq models}]
+      \hfill \textit{April '17 - June '17} \\
+      \textit{Course project in Natural Language Understanding under Prof. Thomas Hofmann}
+      \begin{itemize}
+      	\item Starting with a basic sequence to sequence model for conversational agent,
+      	improved upon the baseline using attention models, stacked RNNs, mutual information (for diversifying output) and beam search
+      	\item Introduced histograms of word frequency as a metric to evaluate model 
+      	performance (especially diversity) along with perplexity and BLEU score
+      \end{itemize}
+      
+     \item[\normalsize{Speeding up deep semantic segmentation}]
+     \hfill \textit{May '17 - Ongoing} \\
+     \textit{Research project under Dr. Martin Oswald}
+     \begin{itemize}
+     	\item Aim of the project is to speed up Convolutional Network Architectures for
+     	real time Semantic Segmentation of images using depth data on mobile devices. Currently exploring how depth values affect the performance of various
+     	segmentation architectures and how the network can be simplified accordingly
+     \end{itemize}
+      
+     \item[\normalsize{Twitter Sentiment Classification}] 
+     \hfill	 \textit{March '17 - July '17} \\
+     \textit{Course project (Kaggle challenge) in Computational Intelligence Lab under Prof. Thomas Hofmann}
+     \begin{itemize}
+     	\item Used GloVe and Word2Vec to extract word embeddings from tweets, along
+     	with a combination of unsupervised sentence level embeddings to form feature
+     	vectors
+     	\item Used an ensemble of LSTM and GRU Recurrent Networks along with different Convolutional Networks to achieve a classification accuracy of 89\% on a dataset of 2.5 million tweets. This was the top scoring model on the leaderboard. 
+     \end{itemize}
+ 
+	\item[\normalsize{Optimized implementation of Latent Dirichlet Allocation}]
+	\hfill \textit{March '17 - June '17} \\
+	\textit{Course project in How to Write Fast Numerical Code under Prof. Markus P{\"u}schel}
+	\begin{itemize}
+		\item Enhanced the performance of a standard Latent Dirichlet Allocation (LDA)
+		implementation on single core using memory usage improvements, use of SIMD instructions, cache analysis etc.
+		\item Achieved a speedup of 11x over original baseline written by authors of LDA
+	\end{itemize}
       
 	 \item[\normalsize{Object detection and classification in Surveillance videos}] \hfill  \textit{Jan '16 - Apr '16} \\
 	  \textit{Course project in Machine Learning, tools and techniques under Prof. Harish Karnick, IIT Kanpur}
 	  \begin{itemize}
-            \item Aim of the project was to detect and classify objects from the university's survelliance videos into 
-                  pre-defined classes (2/4 wheelers, pedestrian etc)
-            \item Used selective search and background subtraction techniques to extract candidate region proposals for classification
-            \item Extracted feature using various methods like SIFT, HOG, Convolutional Neural Networks, Autoencoders and Restricted
-                  Boltzman Machines. Used classification algorithms like Random Forests, SVM and Decision trees and compared the results.
-            \item On image classification, achieved an accuracy of more than 90\% using CNNs.
+            %\item Aim of the project was to detect and classify objects from the university's survelliance videos into pre-defined classes (2/4 wheelers, pedestrian etc)
+            \item Used selective search and background subtraction techniques to extract candidate region proposals for classification. 
+            \item Extracted feature using various methods like SIFT, HOG, Convolutional Neural Networks, Autoencoders and Restricted Boltzman Machines. Compared the classification accuracy obtained with different classification algorithms
 	  \end{itemize}
 
-	 \item[\normalsize{Identifying age, gender and health from brain fMRI images}] \hfill  \textit{Sept '16 - Dec '16} \\
-           \textit{Course project (Kaggle challenges) in Machine Learning under Prof. Joachim Buhmann, ETH Zurich}
-	  \begin{itemize}
-            \item Used segmentation (into white and grey matter) and extracted features like canny edges, SIFT, Histograms 
-              from input brain fMRI images
-            \item Used SVM's, Logistic Regression, Random Forests and ensembles like Adaboost, bagging to improve accuracy
-	  \end{itemize}
+%	 \item[\normalsize{Identifying age, gender and health from brain fMRI images}] \hfill  \textit{Sept '16 - Dec '16} \\
+%           \textit{Course project (Kaggle challenges) in Machine Learning under Prof. Joachim Buhmann, ETH Zurich}
+%	  \begin{itemize}
+%            \item Used segmentation (into white and grey matter) and extracted features like canny edges, SIFT, Histograms 
+%              from input brain fMRI images
+%            \item Used SVM's, Logistic Regression, Random Forests and ensembles like Adaboost, bagging to improve accuracy
+%	  \end{itemize}
 
-	 \item[\normalsize{Online algorithms for large datasets}] \hfill  \textit{Sept '16 - Dec '16} \\
-           \textit{Course project in Data Mining under Prof. Andreas Krause, ETH Zurich}
-	  \begin{itemize}
-            \item Implemented online algorithms for similarity detection (Locality sensitive hashing), Clustering 
-              (coreset construction followed by k-means), Image Classification (SVMs using Random Fourier Features) and 
-              News recommendation (linUCB) 
-            \item Placed in top 15\% on the leaderboards
-	  \end{itemize}
+%	 \item[\normalsize{Online algorithms for large datasets}] \hfill  \textit{Sept '16 - Dec '16} \\
+%           \textit{Course project in Data Mining under Prof. Andreas Krause, ETH Zurich}
+%	  \begin{itemize}
+%            \item Implemented online algorithms for similarity detection (Locality sensitive hashing), Clustering 
+%              (coreset construction followed by k-means), Image Classification (SVMs using Random Fourier Features) and 
+%              News recommendation (linUCB) 
+%            \item Placed in top 15\% on the leaderboards
+%	  \end{itemize}
 
         %\item[\normalsize{Robust PCA via Convex Optimization}] \hfill \textit{Apr '16} \\
 	%  \textit{Term paper in Convex Optimization under Prof. Ketan Rajawat, IIT Kanpur}
@@ -186,10 +219,9 @@
         %      like time taken, reconstruction error, error-rate with iterations etc.
 	%  \end{itemize}
 
-            \pagebreak
 	  \item[\normalsize{Random Graphs}]	\hfill 	\textit{July '15 - Nov '15} \\
             \textit{Undergraduate project under Prof. Surender Baswana, IIT Kanpur} 
-            \hfill \href{http://home.iitk.ac.in/~sshekh/cs498a/report.pdf}{\textit{\textcolor{ProcessBlue}{link to report}}}
+            \hfill %\href{http://home.iitk.ac.in/~sshekh/cs498a/report.pdf}{\textit{\textcolor{ProcessBlue}{link to report}}}
 	  \begin{itemize}
 	   \item Studied Erdos-Renyi phase transitions and expected linear time algorithms for finding 
                 biconnected components in Random graphs.
@@ -216,40 +248,39 @@
 %	  \item Implemented Viola-Jones object detection framework for vehicle classification using OpenCV. 		
 %	  \end{itemize}
 
-% 	\item[\normalsize{Scala to MIPS Assembly Compiler}] \hfill \textit{Jan '15 - Apr '15} \\
-% 	\textit{Course Project in Compilers under prof. Subhajit Roy, IIT Kanpur}
-% 	\begin{itemize}
-% 	 \item Programmed a Scala to MIPS cross compiler with support for basic datatypes, conditional statements,
-% looping statements, arrays, nested functions, recursion and object oriented features
-% 	 \item Awarded as the second best project for the course out of 22 teams
-% 	\end{itemize}
-% 	
+ 	\item[\normalsize{Scala to MIPS Assembly Compiler}] \hfill \textit{Jan '15 - Apr '15} \\
+ 	\textit{Course Project in Compilers under prof. Subhajit Roy, IIT Kanpur}
+ 	\begin{itemize}
+ 	 \item Programmed a Scala to MIPS cross compiler with support for basic datatypes, conditional statements,
+ looping statements, arrays, nested functions, recursion and object oriented features
+ 	 \item Awarded as the second best project for the course out of 22 teams
+ 	\end{itemize}
+ 	
 	\item[\normalsize{Extension of NACHOS}]  \hfill \textit{Aug '14 - Nov '14} \\
 	\textit{Course Project in Operating Systems under prof. Mainak Chaudhuri, IIT Kanpur}
 	\begin{itemize}
-	 \item Extended the standard system call library of NachOS and implemented Fork, Exec, Join, Yield, Sleep, Exit system calls
-	 \item Implemented process scheduling algorithms like UNIX scheduling, FIFO, Round robin, SJF and non-preemptive scheduling and assessed the results
+	 \item Extended the standard system call library of NachOS and implemented Fork, Exec, Join, Yield, Sleep, Exit system calls. Implemented process scheduling algorithms like UNIX scheduling, FIFO, Round robin, SJF and non-preemptive scheduling
 	 \item Programmed page replacement algorithms: Random allocation, FIFO, LRU and LRU-clock and evaluated relative performance
 	\end{itemize}
 	
-	 \item[\normalsize{Advances in Generative models with deep learning}] \hfill  \textit{Jan '16 - Apr '16} \\
-	  \textit{Course project in Probabilistic Machine Learning under Prof. Piyush Rai, IIT Kanpur}
-	  \begin{itemize}
-            \item Studied two recent generative models that use deep learning techniques, deep exponential families
-                  and generative adversarial networks.  
-            \item Used an implemntation of Deep Exponential Families for topic modelling on KOS blog entries from the
-                  UCI ML Bag of Words dataset
-            \item Used a Theano implementation of GAN to generate images from MNIST and CIFAR datasets.
-	  \end{itemize}
+%	 \item[\normalsize{Advances in Generative models with deep learning}] \hfill  \textit{Jan '16 - Apr '16} \\
+%	  \textit{Course project in Probabilistic Machine Learning under Prof. Piyush Rai, IIT Kanpur}
+%	  \begin{itemize}
+%            \item Studied two recent generative models that use deep learning techniques, deep exponential families
+%                  and generative adversarial networks.  
+%            \item Used an implemntation of Deep Exponential Families for topic modelling on KOS blog entries from the
+%                  UCI ML Bag of Words dataset
+%            \item Used a Theano implementation of GAN to generate images from MNIST and CIFAR datasets.
+%	  \end{itemize}
 
 	 
-	 \item[\normalsize{R on Hadoop}]	\hfill 	\textit{Aug '14 - Nov '14} \\
-	 \textit{Course project in CS52 under prof. Arnab Bhattacharya, IIT Kanpur}
-	 \begin{itemize}
-	  \item Setup a Hadoop cluster on an IBM Bladeserver and install RHadoop packages on the server 
-	  \item Allowed distributed processing of R-code on the Hadoop cluster
-	  \item This project was selected as one of the best in the course
-	 \end{itemize}
+%	 \item[\normalsize{R on Hadoop}]	\hfill 	\textit{Aug '14 - Nov '14} \\
+%	 \textit{Course project in CS52 under prof. Arnab Bhattacharya, IIT Kanpur}
+%	 \begin{itemize}
+%	  \item Setup a Hadoop cluster on an IBM Bladeserver and install RHadoop packages on the server 
+%	  \item Allowed distributed processing of R-code on the Hadoop cluster
+%	  \item This project was selected as one of the best in the course
+%	 \end{itemize}
  
 % 	   \item[\normalsize{Projection algorithms for feasibility of Linear Programs}] \hfill  \textit{(May '14 - July '14)}\\
 % 	   \textit{Summer project under prof. S K Mehta}
@@ -338,14 +369,13 @@
 	\vspace{14pt}
 	\begin{changemargin}{0.15in}{0.15in}
 	\begin{itemize}
-	  \item ETH Excellence Scholarship and Opportunity award, awarded to 3 students among $\approx$ 150 students
-            admitted to MSc program in the year 2016
-	  \item Academic Excellence Award, IIT Kanpur, 2012-13 
-	  \item Teaching Assistant for Data Structures and algorithms course, year 2015-16.
-	  %\item Secured All India Rank {\bf 958} in {\bf IIT-JEE} among 500,000 candidates.
+	  %\item Academic Excellence Award, IIT Kanpur, 2012-13 
+	  \item Teaching Assistant, Machine Learning, fall 2017
+	  \item Teaching Assistant, Data Structures and algorithms, fall 2015-16
+	  \item Secured All India Rank 958 in IIT-JEE among 500,000 candidates.
 	  %\item Secured All India Rank {\bf 554} in {\bf AIEEE} among 1,000,000 candidates.
 	  %\item Qualified Regional Mathematical Olympiad(RMO) 2012
-	  \item Selected in Top 1\% of each of the National Standard Examinations in Physics (NSEP), Chemistry (NSEC) and Astronomy (NSEA) and Regional Mathematics Olympiad.
+	  \item Selected in Top 1\% of each of the National Standard Examinations in Physics (NSEP), Chemistry (NSEC) and Astronomy (NSEA) and Regional Mathematics Olympiad
 	\end{itemize}
 	\end{changemargin}
 \end{body}
@@ -384,12 +414,11 @@
 	\vspace{14pt}
 	\begin{changemargin}{0.15in}{0.15in}
 	\begin{itemize}
-          \item $1^{st}$ place from the ETH Hub (top $50$ worldwide among 3000 teams) in Google Hash Code online Qualification round.
-              Selected for the finals to be held at Google Paris in April 2017.
-          \item Ranked $10^{th}$ among 60 teams and awarded a bronze medal at ACM ICPC SWERC 2016 Regionals
+       \item Google Hash Code 2016 Finalist, top $50$ worldwide among 3000 teams in the online qualification round.
+       \item Ranked $10^{th}$ among 60 teams and awarded a bronze medal at ACM ICPC SWERC 2016 Regionals
 	  \item $6^{th}$ place among top 25 teams selected (among 8000 in online rounds) for the Codechef Snackdown onsite finale 2015 \\
-	  %\item Secretary, Programming Club ( \emph{Academic Year 2013-2014} ) - Assisted in organizing Programming competitions 
-	   % and took introductory programming lecture for the freshers.
+	  \item Secretary, Programming Club (\textit{2013-2014}) - Assisted in organizing Programming competitions 
+	    and took introductory programming lecture for the freshers.
 	  %\item Worked with a team of 5 members on creating and testing the problems for IOPC, the annual 24 hr long algorithmic programming contest during 
 	%	Techkriti 2015. 901 teams participated in the contest.
  	  \item Advanced to Round 2 of Facebook Hackercup 2013 (position 287), and Round 2 of Google Code Jam 2014 \\
@@ -399,7 +428,7 @@
 %	  \item Used Facebook's SDK and fuse.js for robust search. Won 1st place.
 	 %\item Attended the large scale optimization for machine learning summer school, 2016 at IISC, Bangalore \\
          %\item Attended the mini symposium on Computation and Optimization held at IIT Kanpur \\
-	    %\item Github Handle \href{http://github.com/sshekh} {\emph{{\textit{\textcolor{ProcessBlue}{sshekh}}}}} \\
+	    \item Github Handle \href{http://github.com/sshekh} {\emph{{\textit{\textcolor{ProcessBlue}{sshekh}}}}} \\
 	    %\item Linkedin Profile \href{https://www.linkedin.com/in/saurav-shekhar-16786958} {saurav-shekhar-16786958} \\
 	\end{itemize}
         \end{changemargin}
@@ -413,8 +442,9 @@
 \begin{body}
 	\vspace{14pt}
 	\begin{changemargin}{0.15in}{0.15in}
-	\emph{\textbf{Programming Languages: }}{} C, C++ (Proficient), Java, Python, Haskell, Perl, HTML, PHP, Bash Shell Scripting, nodejs\\
-	\emph{\textbf{Software: }}{}  Torch7, Tensorflow, Caffe, MySQL, MongoDB, GIT, MIPS Assembly, \LaTeX, Gnuplot, Octave, MATLAB, Amazon Web Service \\
+	\emph{\textbf{Coursework:}} Natural Language Understanding, Machine Learning, Hardware Architectures in Machine Learning, How to Write Fast Numerical Code, Probabilistic Artificial Intelligence, Algorithms Lab \\
+	\emph{\textbf{Programming Languages: }}{} C, C++ (Proficient), Java, Python, Lua, Haskell, HTML, PHP, Bash Shell, Node.js\\
+	\emph{\textbf{Software: }}{} Torch7, Tensorflow, CUDA (cuBLAS), Caffe, MySQL, MongoDB, GIT, MIPS Assembly, \LaTeX, Gnuplot, Amazon Web Service \\
 	\end{changemargin}
 \end{body}
 
