@@ -12,4 +12,4 @@ Full code can be found [here](https://github.com/tmvadnn/root/tree/master/tmva/t
 Here is an example of an `RNN->Reshape->DenseLayer` network learning the identity function (input of dimensionality two stored as a state of size 3 in RNN, then
 reconstructed by DenseLayer). 
 
-![Training of RNN on identity function][https://github.com/sshekh/sshekh.github.io/blob/master/blog/gsoc/loss.png]
+![Training of RNN on identity function](https://github.com/sshekh/sshekh.github.io/blob/master/blog/gsoc/loss.png)
