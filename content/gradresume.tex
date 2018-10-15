@@ -80,15 +80,13 @@
 % END RESUME DEFINITIONS
 
 \begin{document}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Name
 \contact{Saurav Shekhar}
-%{{\hspace{172pt}}(+41) 76 410 31 18}
-{{\hspace{172pt}}(+1) 669 249 9062}
+{{\hspace{172pt}}(+41) 76 410 31 18}
 {{\hspace{130pt}} \href{mailto:sauravshekhar01@gmail.com}{sauravshekhar01@gmail.com}}
-{\hspace{190pt}Github: \href{http://github.com/sshekh}{\emph{{\textit{sshekh}}}}}
-%{{\hspace{180pt}} \href{https://sshekh.github.io/}{sshekh.github.io}}  
+%{\hspace{190pt}Github: \href{http://github.com/sshekh}{\emph{{\textit{sshekh}}}}}
+{{\hspace{180pt}} \href{https://sshekh.github.io/}{sshekh.github.io}}  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Education
@@ -111,18 +109,15 @@
   
   \begin{description}
   	\item[\normalsize{Zero shot emoji recognizer}] \hfill 
-  	\textit{June '18 - ongoing} \\
+  	\textit{June '18 - September '18} \\
   	\textit{Internship in Handwriting Recognition Research, Machine Perception, 
         Google Mountain View}
   \begin{itemize}
-  	\item Aim of the project is to design ML models that can classify handwriting
-          strokes into different emoji classes using just emoji images during
-          training 
-  	\item Experimented with image based models by rendering stroke data to 
-          image and training Similarity Networks for zero shot learning. 
-        %\item Achieved 40\% top-25 accuracy on 1.6k emoji classes
-  	\item Currently experimenting with joint embedding techniques to learn 
-          better distance metrics between images
+  	\item Researched Machine Learning models for learning better embeddings for emoji recognition
+  	%\item (detail): Aim of the project is to design ML models that can classify handwriting
+        %  strokes into different emoji classes using just emoji images during training. Experimented
+        %  with image based models by rendering stroke data to image and training Similarity Networks
+        %  for zero shot learning. Achieved 40\% top-25 accuracy on 1.6k emoji classes
   \end{itemize}
   	
   \end{description}
@@ -132,26 +127,28 @@
       \hfill \textit{March '18 - June '18} \\
       \textit{Internship at Amazon CoreAI, Berlin}
       \begin{itemize}
-        \item Trained Machine Learning models on thousands on hyperparameter configurations 
-          generated with pseudo-grid sampling and collected the results for different 
-          dataset types
-        \item Created lookup tables with extrapolation for epochwise
-        simulation of black box model on any given hyperparameter configuration
-        \item Sped up evaluation of Hyperparameter Optimization algorithms by 
-          several orders of magnitude using offline tables
+        \item Trained ML models on thousands of hyperparameter configurations and created
+          lookup tables with extrapolation for epochwise simulation of black box
+          model.
+        %\item (detail) Trained Machine Learning models on thousands on hyperparameter configurations 
+        %  generated with pseudo-grid sampling and collected the results for different 
+        %  dataset types. Created lookup tables with extrapolation for epochwise
+        %simulation of black box model on any given hyperparameter configuration.
+        %Sped up evaluation of Hyperparameter Optimization algorithms by 
+        %  several orders of magnitude using offline tables
       \end{itemize}
 
     \item[\normalsize{Recurrent Neural Networks on GPU for Particle Physics applications}] \hfill \textit{May '17 - August '17} \\
       \textit{Google Summer of Code project under CERN-HEP Software Foundation, Geneva}
       \begin{itemize}
-        \item Introduced Recurrent Neural Networks support in TMVA Module in the
-          ROOT data analysis framework. Features include parsing network 
-          configurations, storing and loading weights, training data with GPU 
+        \item Restructured the Deep Learning module and added Recurrent Neural Network
+          support in TMVA Module in the ROOT data analysis framework. Features include
+          parsing network configurations, storing and loading weights, training data with GPU 
           (using CuBLAS), BLAS and multi-threaded training support for CPUs.
-        \item Restructured the entire Deep Learning module in TMVA to better 
-          suit advanced deep learning architectures like CNNs, RNNs and 
-          Autoencoders. Benchmarking on images dataset for event classification
-          in particle physics.
+        %\item Restructured the entire Deep Learning module in TMVA to better 
+        %  suit advanced deep learning architectures like CNNs, RNNs and 
+        %  Autoencoders. Benchmarking on images dataset for event classification
+        %  in particle physics.
       \end{itemize}
 
     \item [\normalsize{Personalized feed algorithm}] \hfill \textit{May '16 - August '16} \\
@@ -164,14 +161,9 @@
 
     \item[\normalsize{Real-time Market Data Monitor}] \hfill \textit{May '15 - July '15} \\
       \textit{Summer internship at Goldman Sachs, Bangalore} 
-      %Application is capable of consuming market data from various sources. 
-      %Functionality includes monitoring and alerting on stale, missing or malformed data
       \begin{itemize}
         \item Implemented monitoring and alerting for latency spikes and various
-          market data sanity checks.
-        \item Improved market data subscription and abstracted out various 
-          monitoring and alerting functionalities so that these can be reused 
-          across multiple market data source systems.
+          market data sanity checks and improved market data subscription
           %\item Technology Used: Java, JNI, Bash, Reuters RFA API
       \end{itemize}
 
@@ -197,16 +189,6 @@
           score.
       \end{itemize}
 
-    %  \item[\normalsize{Speeding up deep semantic segmentation}]
-    %  \hfill \textit{May '17 - Ongoing} \\
-    %  \textit{Research project under Dr. Martin Oswald}
-    %  \begin{itemize}
-    %      \item Aim of the project is to speed up Convolutional Network Architectures for
-    %      real time Semantic Segmentation of images using depth data on mobile devices. Currently
-    %    exploring how depth values affect the performance of various
-    %      segmentation architectures and how the network can be simplified accordingly.
-    %  \end{itemize}
-
     \item[\normalsize{Twitter Sentiment Classification}] \hfill \textit{March '17 - July '17} \\
       \textit{Course project (Kaggle challenge) in Computational Intelligence Lab
       under Prof. Thomas Hofmann}
@@ -214,10 +196,9 @@
         \item Used GloVe and Word2Vec to extract word embeddings from tweets, 
           along with a combination of unsupervised sentence level embeddings to
           form feature vectors.
-        \item Used an ensemble of LSTM and GRU Recurrent Networks along with 
-          different Convolutional Networks to achieve a classification accuracy
-          of 89\% on a dataset of 2.5 million tweets. 
-        \item This was the top scoring model on the leaderboard. 
+        \item Used an ensemble of LSTM, GRU and Convolutional Networks
+          to achieve a classification accuracy of 89\% on a dataset of 2.5 million
+          tweets. This was the {\bf top} scoring model on the leaderboard. 
       \end{itemize}
 
     \item[\normalsize{Optimized implementation of Latent Dirichlet Allocation}]  \hfill \textit{March '17 - June '17} \\
@@ -226,7 +207,7 @@
         \item Enhanced the performance of a standard Latent Dirichlet Allocation (LDA)
           implementation on single core using memory usage improvements, use of 
           SIMD instructions, cache analysis etc.
-        \item Achieved a speedup of 11x over original baseline written by authors
+        \item Achieved a speedup of 11x over original C implementation written by authors
           of LDA.
       \end{itemize}
 
@@ -271,15 +252,15 @@
     %      like time taken, reconstruction error, error-rate with iterations etc.
     %  \end{itemize}
 
-    \item[\normalsize{Random Graphs}]	\hfill 	\textit{July '15 - Nov '15} \\
-      \textit{Undergraduate project under Prof. Surender Baswana, IIT Kanpur} 
-      \hfill %\href{http://home.iitk.ac.in/~sshekh/cs498a/report.pdf}{\textit{\textcolor{ProcessBlue}{link to report}}}
-    \begin{itemize}
-      \item Studied Erdos-Renyi phase transitions and expected linear time 
-        algorithms for finding biconnected components in Random graphs.
-      \item Worked on average case analysis of an incremental algorithm for 
-        maintaining DFS tree in an undirected graph.
-    \end{itemize}
+    %\item[\normalsize{Random Graphs}]	\hfill 	\textit{July '15 - Nov '15} \\
+    %  \textit{Undergraduate project under Prof. Surender Baswana, IIT Kanpur} 
+    %  \hfill %\href{http://home.iitk.ac.in/~sshekh/cs498a/report.pdf}{\textit{\textcolor{ProcessBlue}{link to report}}}
+    %\begin{itemize}
+    %  \item Studied Erdos-Renyi phase transitions and expected linear time 
+    %    algorithms for finding biconnected components in Random graphs.
+    %  \item Worked on average case analysis of an incremental algorithm for 
+    %    maintaining DFS tree in an undirected graph.
+    %\end{itemize}
 
     %	  \item[\normalsize{Concurrent data Structures in Haskell}] \hfill  \textit{July '15 - Nov '15} \\
     %	  \textit{Course project in Functional Programming under Prof. Piyush Kurur, IIT Kanpur}
@@ -303,7 +284,7 @@
     %		step towards Optical Character Recognition
     %	  \item Implemented Viola-Jones object detection framework for vehicle classification using OpenCV. 		
     %	  \end{itemize}
-
+\newpage
   \item[\normalsize{Scala to MIPS Assembly Compiler}] \hfill \textit{Jan '15 - Apr '15} \\
     \textit{Course Project in Compilers under prof. Subhajit Roy, IIT Kanpur}
   \begin{itemize}
@@ -324,48 +305,14 @@
       and LRU-clock and evaluated relative performance.
   \end{itemize}
 
-  %	 \item[\normalsize{Advances in Generative models with deep learning}] \hfill  \textit{Jan '16 - Apr '16} \\
-  %	  \textit{Course project in Probabilistic Machine Learning under Prof. Piyush Rai, IIT Kanpur}
-  %	  \begin{itemize}
-  %            \item Studied two recent generative models that use deep learning techniques, deep exponential families
-  %                  and generative adversarial networks.  
-  %            \item Used an implemntation of Deep Exponential Families for topic modelling on KOS blog entries from the
-  %                  UCI ML Bag of Words dataset
-  %            \item Used a Theano implementation of GAN to generate images from MNIST and CIFAR datasets.
-  %	  \end{itemize}
-
-
-  %	 \item[\normalsize{R on Hadoop}]	\hfill 	\textit{Aug '14 - Nov '14} \\
-  %	 \textit{Course project in CS52 under prof. Arnab Bhattacharya, IIT Kanpur}
-  %	 \begin{itemize}
-  %	  \item Setup a Hadoop cluster on an IBM Bladeserver and install RHadoop packages on the server 
-  %	  \item Allowed distributed processing of R-code on the Hadoop cluster
-  %	  \item This project was selected as one of the best in the course
-  %	 \end{itemize}
-
-  % 	   \item[\normalsize{Projection algorithms for feasibility of Linear Programs}] \hfill  \textit{(May '14 - July '14)}\\
-  % 	   \textit{Summer project under prof. S K Mehta}
-  % 	   \begin{itemize}
-  % 	   \item Studied various Linear programming algorithms like simplex and interior point methods.
-  % 	   \item Tried heuristic methods for finding the vector of fastest convergence.
-  % 	   \item Studied Relaxation method for convex feasibility by Agmon, Motzkin and Schoenberg.
-  % 	  \end{itemize}
-  %	  \item[\normalsize{Advanced audio equalizer}]  \hfill \textit{May '13 - June '13}\\
-  %	  \textit{Summer Project under Programming Club, IIT Kanpur} 
-  %	  \begin{itemize}
-  %	  \item Devloped an audio equalizer in Java that used Fourier transform to break a song into its frequency range. 
-  %	  \item Variable ranges of frequency could be filtered out accurately using GUI.
-  %	  \item Used Minim Audio library and Processing development Enviroment. 
-  %	  \end{itemize}
-  %\clearpage
   \end{description}
   \smallskip
 \end{body}
-
-  %\header{Short Projects}
-  %\vspace{2 mm}
-  %\begin{body}
-  %	\vspace{14pt}
+\vspace{2mm}
+  \header{Short Projects}
+  \vspace{2 mm}
+  \begin{body}
+      \vspace{14pt}
   %	\begin{description}
   % 	  {\bf Yahoo HackU! 2013} 	\hfill \textit{(August '13)} \\
   % 	  \begin{itemize}
@@ -388,13 +335,12 @@
   % 	  \end{itemize}
   % 	  
   %	  %\href{http://hackyourworld.org/~saurav/takneek/}
-  %	  {\bf Takneek,IITK 2013}	\hfill \textit{(Aug '13)} \\  
-  %	  \begin{itemize}
-  %	  \item
-  %	  \item Implemented an applicaton to search through timeline of a given friend of the user or the user himself based on the given 
-  %	  time interval and keywords and auto comment on the search results.
-  %	  \item Used Facebook's SDK and fuse.js for robust search. Won 1st place.
-  %	  \end{itemize}
+    {\bf Takneek 2013, IIT Kanpur}	\hfill \textit{(Aug '13)} \\  
+    \begin{itemize}
+    \item Implemented an applicaton to search through facebook timeline of a given friend of the user or the user himself based on the given 
+    time interval and keywords and auto comment on the search results.
+    \item Used Facebook's SDK and fuse.js for robust search. Won 1st place.
+    \end{itemize}
 
   %	  {\bf Cuckoo Hashing} \hfill \textit{Apr '15} \\
   %	  \textit{Term paper in Randomized Algorithms under Prof. Surender Baswana, IIT Kanpur}
@@ -403,39 +349,20 @@
   %	   \item Studied Cuckoo Hashing and its average case runtime analysis
   %	  \end{itemize}
 
-  %	  {\bf Planar Graph Visualisation} \hfill \textit{Jan '13 - Apr '13} \\ 
-  %	  \textit{Semester project under ACA, IIT Kanpur}  
-  %	  \begin{itemize}
-  %	  \item
-  %	  \item Studied various methods like Coffman-Graham algorithm to minimize crossings in Planar Graph Drawing
-  %	  \item Studied basic Graph Theory along with various properties of Planar Graphs and heuristics of Graph drawing
-  %	  \end{itemize}
-
-  % 	  {\bf Roulette} \hfill {\it (August '12)} \\ 
-  % 	  Electrovate 12, circuit design competition under Electronics club	
-  % 	  \begin{itemize}
-  % 	  \item
-  % 	   \item Designed and implemented a mini roulette using a breadboard and basic logic gates.
-  % 	   \item Used {\bf XOR gates} to implement flip-flop. Won {\bf most innovative circuit} award.
-  % 	  \end{itemize}
-
-
   %	\end{description}
   %	\smallskip
-  %\end{body}
+  \end{body}
 
+\vspace{2 mm}
 \header{Academic}
-%\vspace{2 mm}
 \begin{body}
   \vspace{14pt}
         \begin{changemargin}{0.15in}{0.15in}
           \begin{itemize}
-              %\item Academic Excellence Award, IIT Kanpur, 2012-13 
-              %\item Teaching Assistant, Machine Learning, \emph{starting} fall 2017.
-            \item Teaching Assistant, Data Structures and algorithms, fall 2015.
+            \item Research Assistant, Information Science and Engineering Group, ETH Z{\"u}rich, fall 2017
+            \item Teaching Assistant, Data Structures and algorithms, IIT Kanpur, fall 2015
+            \item Teaching Assistant, Advanced algorithms, IIT Kanpur, fall 2015
             \item Secured All India Rank 958 in IIT-JEE among 500,000 candidates.
-              %\item Secured All India Rank {\bf 554} in {\bf AIEEE} among 1,000,000 candidates.
-              %\item Qualified Regional Mathematical Olympiad(RMO) 2012
             \item Selected in Top 1\% of each of the National Standard Examinations 
               in Physics (NSEP), Chemistry (NSEC) and Astronomy (NSEA) and Regional
               Mathematics Olympiad.
@@ -470,7 +397,7 @@
 % 	\footnotesize $^{*}$ Expected to be completed by Feb' 17
 % \end{body}
 
-\vspace{1 mm}
+\vspace{2 mm}
 \header{Miscellanous}
 %\vspace{2 mm}
 \begin{body}
@@ -514,13 +441,14 @@
 \begin{body}
   \vspace{14pt}
         \begin{changemargin}{0.15in}{0.15in}
-          \emph{\textbf{Coursework:}} Computer Vision (\emph{ongoing}), 
-          Deep Learning (\emph{ongoing}), Natural Language Processing, Machine 
+          \emph{\textbf{Coursework:}} Computer Vision, Probabilistic Machine Learning,
+          Graphical models for image analysis (\emph{Ongoing})
+          Deep Learning, Natural Language Understanding, Machine 
           Learning, Hardware Architectures in Machine Learning, 
           How to Write Fast Numerical Code, Algorithms Lab \\
-          \emph{\textbf{Programming Languages: }}{} C++ (Proficient), Java, Python, 
-          Lua, Haskell, PHP, Bash Shell\\
-          \emph{\textbf{Software: }}{} Torch7, Tensorflow, CUDA (cuBLAS), MATLAB, 
+          \emph{\textbf{Programming Languages: }}{} C++ (Proficient), Python (Proficient), 
+          Lua, Java, Haskell, Bash Shell\\
+          \emph{\textbf{Software: }}{} Torch, Tensorflow, CUDA (cuBLAS), MATLAB, 
           Caffe, MySQL, GIT, MIPS Assembly, \LaTeX \\
         \end{changemargin}
 \end{body}
