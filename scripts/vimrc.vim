@@ -31,7 +31,6 @@ vmap <C-V> d"+P
 " For navigating tabs like other applications
 nmap <C-PageDown> gt
 nmap <C-PageUp> gT
-nmap <C-O> :tabnew <Space>
 nmap <C-T> :tabnew <Space>
 
 " Open new panes to right and bottom
