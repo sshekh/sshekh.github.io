@@ -144,13 +144,11 @@ cmap w!! %!sudo tee > /dev/null %
 " syntastic, NERDTree, airline, NERDTree-git, solarized colors,
 " indentline, ack (silver-searcher), fzf, vim-fugitive
 " TODO use ctrlp, vim-snippets, vim-codefmt, yapf | neovim spacemacs etc
-let g:pathogen_disabled = ['ale']
 execute pathogen#infect()
 
 " start NerdTree on startup and start in main window
 autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p 
-
+autocmd VimEnter * wincmd p
 " project specific indentation
 augroup ProjectSetup
 ""au BufRead,BufEnter /home/saurav/summer17/gsoc/* set shiftwidth=3 expandtab softtabstop=3
@@ -178,11 +176,15 @@ if has("gui_running")
   " air-line
   let g:airline_powerline_fonts = 0
   autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
+  " display math symbols in bold
+  autocmd FileType tex nmap <LocalLeader>h :highlight Conceal gui=bold guifg=Black<CR>
 else
   " basic raw vim
   let g:loaded_youcompleteme = 1
   ""autocmd VimEnter * SyntasticToggleMode
   autocmd VimEnter * AirlineToggle
+  " display math symbols in bold
+  autocmd FileType tex nmap <LocalLeader>h :highlight Conceal cterm=bold ctermfg=Black<CR>
 
   " dark background in guake terminal
   "https://unix.stackexchange.com/questions/170428/identify-whether-terminal-is-open-in-guake
@@ -220,6 +222,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 " fzf vim plugin https://github.com/junegunn/fzf.vim <3 
 Plugin 'junegunn/fzf.vim'
+" vimtex plugin for latex
+Plugin 'lervag/vimtex'
+" Indentline
+Plugin 'Yggdroot/indentLine'
 " From Google Codefmt https://github.com/google/vim-codefmt 
 " Add maktaba and codefmt to the runtimepath.
 " (The latter must be installed before it can be used.)
@@ -239,6 +245,13 @@ filetype plugin indent on    " required
 
 " codefmt default for Python is autopep8
 autocmd FileType python let b:codefmt_formatter = 'yapf'
+
+" display math symbols more promintently, also highlights indentline more
+" prominently
+autocmd FileType tex let g:indentLine_enabled = 0
+" conceal math symbols when cursor is on that line
+" https://tex.stackexchange.com/questions/96741/vim-latex-suite-unwanted-in-editor-math-symbol-conversion
+autocmd FileType tex :set conceallevel=2 concealcursor=i
 
 
 " fzf vim mapping find keys
