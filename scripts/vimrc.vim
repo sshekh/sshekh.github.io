@@ -173,13 +173,10 @@ if has("gui_running")
   set guioptions-=l     " no scorllbar on left 
   set lines=35
   set columns=120
-  nmap <C-O> :browse tabnew <CR>
   set guifont=Monospace\ 10.5
   set linespace=5       " increased line spacing as underscore was not visible
   " air-line
   let g:airline_powerline_fonts = 0
-  "" for code formatter google http://liuchengxu.org/posts/use-vim-as-a-python-ide/  
-  ""autocmd VimEnter * SyntasticToggleMode  " not using anymore, using ale
   autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 else
   " basic raw vim
@@ -221,6 +218,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
+" fzf vim plugin https://github.com/junegunn/fzf.vim <3 
+Plugin 'junegunn/fzf.vim'
 " From Google Codefmt https://github.com/google/vim-codefmt 
 " Add maktaba and codefmt to the runtimepath.
 " (The latter must be installed before it can be used.)
@@ -240,3 +239,7 @@ filetype plugin indent on    " required
 
 " codefmt default for Python is autopep8
 autocmd FileType python let b:codefmt_formatter = 'yapf'
+
+
+" fzf vim mapping find keys
+nmap <C-F> :Files <CR>
