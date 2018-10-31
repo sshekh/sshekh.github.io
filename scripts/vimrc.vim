@@ -251,7 +251,17 @@ autocmd FileType python let b:codefmt_formatter = 'yapf'
 autocmd FileType tex let g:indentLine_enabled = 0
 " conceal math symbols when cursor is on that line
 " https://tex.stackexchange.com/questions/96741/vim-latex-suite-unwanted-in-editor-math-symbol-conversion
-autocmd FileType tex :set conceallevel=2 concealcursor=i
+autocmd FileType tex :set conceallevel=2 concealcursor=c
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-pdf',
+    \   '-shell-escape',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
 
 
 " fzf vim mapping find keys

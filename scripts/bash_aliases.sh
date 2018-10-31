@@ -76,5 +76,16 @@ function cgrep {
   fi
 }
 
+# grep within pdf, pdfgrep <pattern> <file>
+alias pdfgrep='pdfgrep -nir'
+# only search within pdfs
+function rpdfgrep {
+  find "${2}" -iname '*.pdf' -exec pdfgrep "${1}" {} +
+}
+
+# show monitors
+alias show_monitors='xrandr | grep " connected " | awk "{ print$1 }"'
+alias dual='xrandr --output DP-2 --scale 2x2'
+
 # /etc/default/keyboard has been altered to swap caps and escape
 # suspend on lid down has been disabled. It is now only lock on lid close.
