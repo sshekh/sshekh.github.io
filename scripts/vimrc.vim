@@ -88,7 +88,7 @@ set softtabstop=2
 
 set shiftround " when shifting a non-aligned set of lines, align them to the next tabstop
 set nu         " show line numbers
-set relativenumber " relative line numbers
+""set relativenumber " relative line numbers
 set cursorline " underline current line
 
 " while scrolling keep cursor at the middle
@@ -145,6 +145,7 @@ cmap w!! %!sudo tee > /dev/null %
 " indentline, ack (silver-searcher), fzf, vim-fugitive
 " TODO use ctrlp, vim-snippets, vim-codefmt, yapf | neovim spacemacs etc
 execute pathogen#infect()
+let g:pathogen_disables = ['syntastic']
 
 " start NerdTree on startup and start in main window
 autocmd VimEnter * NERDTree
@@ -220,6 +221,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
+" YouCompleteMe
+Plugin 'valloric/youcompleteme'
 " fzf vim plugin https://github.com/junegunn/fzf.vim <3 
 Plugin 'junegunn/fzf.vim'
 " vimtex plugin for latex
@@ -235,6 +238,22 @@ Plugin 'google/vim-codefmt'
 " `:help :Glaive` for usage.
 Plugin 'google/vim-glaive'
 
+" UltiSnips
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
+" Trigger configuration. Do not use <tab> if you use YouCompleteMe
+let g:UltiSnipsExpandTrigger="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsListSnippets="<c-s-tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " the glaive#Install() should go after the "call vundle#end()"
@@ -249,6 +268,8 @@ autocmd FileType python let b:codefmt_formatter = 'yapf'
 " display math symbols more promintently, also highlights indentline more
 " prominently
 autocmd FileType tex let g:indentLine_enabled = 0
+autocmd FileType tex inoremap        $  $$<Left>
+autocmd FileType tex inoremap        $$<CR>  $$<CR>$$<Esc>O
 " conceal math symbols when cursor is on that line
 " https://tex.stackexchange.com/questions/96741/vim-latex-suite-unwanted-in-editor-math-symbol-conversion
 autocmd FileType tex :set conceallevel=2 concealcursor=c
@@ -266,3 +287,41 @@ let g:vimtex_compiler_latexmk = {
 
 " fzf vim mapping find keys
 nmap <C-F> :Files <CR>
+
+" Make YouCompleteMe syntax checker
+"https://stackoverflow.com/questions/24500281/youcompleteme-and-syntastic-compatibility
+"
+" YouCompleteMe options
+"
+
+let g:ycm_register_as_syntastic_checker = 1 "default 1
+let g:Show_diagnostics_ui = 1 "default 1
+
+"will put icons in Vim's gutter on lines that have a diagnostic set.
+"Turning this off will also turn off the YcmErrorLine and YcmWarningLine
+"highlighting
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_highlighting = 1
+let g:ycm_always_populate_location_list = 1 "default 0
+let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
+
+
+let g:ycm_complete_in_strings = 1 "default 1
+let g:ycm_collect_identifiers_from_tags_files = 0 "default 0
+let g:ycm_path_to_python_interpreter = '' "default ''
+
+
+let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
+let g:ycm_server_log_level = 'info' "default info
+
+
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
+let g:ycm_confirm_extra_conf = 1
+
+
+let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
+let g:ycm_filetype_whitelist = { '*': 1 }
+let g:ycm_key_invoke_completion = '<C-Space>'
+
+
+nnoremap <F11> :YcmForceCompileAndDiagnostics <CR>
