@@ -3,24 +3,6 @@
 ## To go to the previous working directory, use
 # cd -
 
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-  export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$'
-#else
-  #export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$'
-  #export PS1="\e[0;34m\e[47m\u@\w> \e[m"  # user>$PATH
-fi
-
-## To show only '>'
-alias npath='export PS1=">"'
-alias ppath='export PS1="\w$"'
-
-#alias mkcd='mkdir "$1"; cd "$1"'
-## mkcd direc will make a directory and cd into it in one go
-function mkcd {
-	mkdir $1; cd $1
-}
-
-
 #Black        0;30     Dark Gray     1;30
 #Red          0;31     Light Red     1;31
 #Green        0;32     Light Green   1;32
@@ -30,14 +12,43 @@ function mkcd {
 #Cyan         0;36     Light Cyan    1;36
 #Light Gray   0;37     White         1;37
 RED='\033[0;31m'
+PURPLE='\033[01;35m'
+GREEN='\033[01;32m'
+HGREEN='\033[01;42m'
+WHITE='\033[01;37m'
+HPURPLE='\033[01;45m'
+HBLUE='\033[1;44m'
+HYELLOW='\033[01;43m'
+BLUE='\033[01;34m'
+CYAN='\033[01;36m'
 DRED='\033[1;31m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
+
+
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\['${PURPLE}'\]\u@\h\['${NC}'\]:\['${BLUE}'\]\w\['${NC}'\]\$'
+#else
+  #export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$'
+  #export PS1="\e[0;34m\e[47m\u@\w> \e[m"  # user>$PATH
+fi
+
+## To show only '>'
+alias npath='export PS1="${HPURPLE}>$NC"'
+# Only current dir
+alias ppath='export PS1="${HBLUE}~ ""${WHITE}""\W"${HPURPLE}"$""${NC}"'
 
 echo_and_run() { 
   echo -e "${YELLOW}\$ $@${NC}" ; 
   "$@" ; 
 }
+
+#alias mkcd='mkdir "$1"; cd "$1"'
+## mkcd direc will make a directory and cd into it in one go
+function mkcd {
+	mkdir $1; cd $1
+}
+
 
 ## alias for gvim
 alias g='gvim'
@@ -88,4 +99,4 @@ alias show_monitors='xrandr | grep " connected " | awk "{ print$1 }"'
 alias dual='xrandr --output DP-2 --scale 2x2'
 
 # /etc/default/keyboard has been altered to swap caps and escape
-# suspend on lid down has been disabled. It is now only lock on lid close.
+# suspend on lid down has been disabled using /etc/systemd/logind.conf

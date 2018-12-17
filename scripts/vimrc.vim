@@ -88,8 +88,9 @@ set softtabstop=2
 
 set shiftround " when shifting a non-aligned set of lines, align them to the next tabstop
 set nu         " show line numbers
-""set relativenumber " relative line numbers
+set relativenumber " relative line numbers
 set cursorline " underline current line
+set colorcolumn=80 " 80 character limit
 
 " while scrolling keep cursor at the middle
 set scrolloff=999
@@ -178,14 +179,14 @@ if has("gui_running")
   let g:airline_powerline_fonts = 0
   autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
   " display math symbols in bold
-  autocmd FileType tex nmap <LocalLeader>h :highlight Conceal gui=bold guifg=Black<CR>
+  "autocmd FileType tex nmap <LocalLeader>h :highlight Conceal gui=bold guifg=blue<CR>
+  autocmd FileType tex :colorscheme solarized
+  autocmd FileType tex :set background=dark
 else
   " basic raw vim
   let g:loaded_youcompleteme = 1
   ""autocmd VimEnter * SyntasticToggleMode
   autocmd VimEnter * AirlineToggle
-  " display math symbols in bold
-  autocmd FileType tex nmap <LocalLeader>h :highlight Conceal cterm=bold ctermfg=Black<CR>
 
   " dark background in guake terminal
   "https://unix.stackexchange.com/questions/170428/identify-whether-terminal-is-open-in-guake
@@ -194,6 +195,12 @@ else
   if terminal_emulator =~ '.*guake.*$'
     set background=dark
   endif
+endif
+
+if exists('$TMUX')
+  " Keep it simple, no nerdtree, no syntastic
+  autocmd VimEnter * NERDTreeToggle
+  autocmd VimEnter * SyntasticToggleMode
 endif
 
 if has('nvim')
@@ -226,7 +233,7 @@ Plugin 'valloric/youcompleteme'
 " fzf vim plugin https://github.com/junegunn/fzf.vim <3 
 Plugin 'junegunn/fzf.vim'
 " vimtex plugin for latex
-Plugin 'lervag/vimtex'
+""Plugin 'lervag/vimtex'
 " Indentline
 Plugin 'Yggdroot/indentLine'
 " From Google Codefmt https://github.com/google/vim-codefmt 
@@ -247,8 +254,8 @@ Plugin 'honza/vim-snippets'
 
 " Trigger configuration. Do not use <tab> if you use YouCompleteMe
 let g:UltiSnipsExpandTrigger="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 let g:UltiSnipsListSnippets="<c-s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
@@ -272,7 +279,12 @@ autocmd FileType tex inoremap        $  $$<Left>
 autocmd FileType tex inoremap        $$<CR>  $$<CR>$$<Esc>O
 " conceal math symbols when cursor is on that line
 " https://tex.stackexchange.com/questions/96741/vim-latex-suite-unwanted-in-editor-math-symbol-conversion
-autocmd FileType tex :set conceallevel=2 concealcursor=c
+""autocmd FileType tex :set conceallevel=2 concealcursor=c
+"" don't conceal, math symbols are annoying
+let g:tex_conceal = ""
+" vimtex compile individual files instead of only main
+" https://vi.stackexchange.com/questions/14655/vimtex-commands-only-working-on-main-file
+let g:tex_flavor = 'latex'
 let g:vimtex_compiler_latexmk = {
     \ 'options' : [
     \   '-pdf',
@@ -286,7 +298,10 @@ let g:vimtex_compiler_latexmk = {
 
 
 " fzf vim mapping find keys
-nmap <C-F> :Files <CR>
+nmap <C-M-F> :Files 
+" can be used to open file in different directory
+" :Files DIRECTORY_NAME
+nmap <C-F> :Files<CR>
 
 " Make YouCompleteMe syntax checker
 "https://stackoverflow.com/questions/24500281/youcompleteme-and-syntastic-compatibility
