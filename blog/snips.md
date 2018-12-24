@@ -48,6 +48,46 @@ int main()
     }
 }
 ```
-will print ` Is disabled`!. See [explanation](https://www.quora.com/What-is-something-that-almost-nobody-knows-about-the-C-coding-language/answer/%C3%81lvaro-Lopes)
+will print `Is disabled`!. See [explanation](https://www.quora.com/What-is-something-that-almost-nobody-knows-about-the-C-coding-language/answer/%C3%81lvaro-Lopes)
+
+* Short and concise way to map count of characters in a string `str`
+```cpp
+map<char, int> count;
+for (auto ch : str) {
+    count[ch]++;
+}
+for (auto e : count) {
+    cout << e.first << " " << e.second << "\n";
+}
+```
+
+* C++17 supports _init_ statements inside `if` and `switch`. For example
+```cpp
+set<int> input = {1, 5, 3, 6};
+if (auto it = input.find(7); it == input.end()) {
+    cout << "7 not found!\n";
+} else {
+    cout << "7 found!\n";
+}
+```
+
+* Using `tie` to give multiple variable values
+```cpp
+vector<tuple<int, int, string>> aa;
+for (int i = 0; i < 5; ++i) {
+    aa.push_back(make_tuple(-i, i*i, "str-" + to_string(i)));
+}
+sort(begin(aa), end(aa));
+int u, v;
+string name;
+for (auto e : aa) {
+    tie(u, v, name) = e;
+    cout << u << " " << v << " " << name << "\n";
+}
+```
+
+* [Finding route through grid](code/orienteering)
+* [CGAL Linear programming example](code/CGAL_lp.md)
+* [SVD Demo LAPACK](code/svd_lapack.md)
 
 * Cppcon talks
