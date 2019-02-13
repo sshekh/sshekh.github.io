@@ -86,6 +86,53 @@ for (auto e : aa) {
 }
 ```
 
+* `for` loops can have an `else` in Python. It is slightly weird construct,
+and not very recommended to use
+```python
+found_obj = None
+for obj in objects:
+    if obj.key == search_key:
+        found_obj = obj
+        break
+else:
+    print('No object found.')
+```
+
+
+* `valarray<>` can be used to write and execute numerical computation code
+efficiently
+```cpp
+#include <iostream>
+#include <vector>
+#include <functional>
+#include <valarray>
+
+using namespace std;
+
+int main() {
+  valarray<double> w{1, 3, 0, -1, 0.2};
+  valarray<double> x{2, 2.5, 3, 0.1, 1./3};
+  valarray<double> b{0, 0, -1, -1, 1};
+  w *= 0.5; // 2, 6, 0, -2, 0.4
+  b = 1.0 - b; // 1, 1, 2, 2, 0
+
+  valarray<double> logits = w*x + b;
+  valarray<double> explogits = exp(logits);
+  double z = explogits.sum();
+  valarray<double> softmax = explogits / z;
+  softmax[softmax > 0.5] = 1;
+  softmax[softmax < 0.01] = 0;
+
+  //0.0533795 1 0.0533795 0.0507762 0
+  for (auto e : softmax) {
+    cout << e << " ";
+  }
+  cout << "\n";
+
+  return 0;
+}
+```
+
 * [Finding route through grid](code/orienteering)
 * [CGAL Linear programming example](code/CGAL_lp.md)
 * [SVD Demo LAPACK](code/svd_lapack.md)

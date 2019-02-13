@@ -1,13 +1,13 @@
 ---
 layout: default
 ---
-Welcome to my homepage. Here are some things you can see
+Welcome to my homepage. Some cool things:
 
 * [Old page](www/)
 * [GSoC blog](blog/gsoc/index)
-* [Resume](content/gradresume.pdf)
-* [Convexity conditions on functionals](blog/convexity_fun)
-* [C/C++/Python Code Snippets I liked](blog/snips)
+* [My resume](content/gradresume.pdf)
+* [Convexity conditions on functionals (with examples on probability distributions)](blog/convexity_fun)
 * [Monte Carlo KL Divergence in Tensorflow distributions](blog/tf_kl_divergence)
+* [C/C++/Python Code Snippets](blog/snips)
 
 *[//]:  [My Linux config files](scripts/)
