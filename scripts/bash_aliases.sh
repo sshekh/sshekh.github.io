@@ -79,6 +79,9 @@ alias matlab='/home/saurav/Matlab/matlab'
 # see command whereis pip for all pip locations
 alias cpip='/home/saurav/anaconda3/bin/pip'
 
+# remove everything from file except printable characters
+# sed $'s/[^[:print:]\t]//g' $1
+
 function cgrep {
   if ag --version >/dev/null 2>&1; then
     ag --color-line-number 31 --color-match 43 --color-path 35 --ignore-case "$@"
