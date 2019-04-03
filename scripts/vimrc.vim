@@ -145,8 +145,8 @@ cmap w!! %!sudo tee > /dev/null %
 " syntastic, NERDTree, airline, NERDTree-git, solarized colors,
 " indentline, ack (silver-searcher), fzf, vim-fugitive
 " TODO use ctrlp, vim-snippets, vim-codefmt, yapf | neovim spacemacs etc
-execute pathogen#infect()
-let g:pathogen_disables = ['syntastic']
+""execute pathogen#infect()
+""let g:pathogen_disables = ['syntastic']
 
 " start NerdTree on startup and start in main window
 autocmd VimEnter * NERDTree
@@ -226,12 +226,18 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
+" NERDTree File Explorer
+Plugin 'scrooloose/nerdtree'
+"Airline
+Plugin 'vim-airline/vim-airline'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 " YouCompleteMe
 Plugin 'valloric/youcompleteme'
 " fzf vim plugin https://github.com/junegunn/fzf.vim <3 
 Plugin 'junegunn/fzf.vim'
+" ack.vim for ag
+Plugin 'mileszs/ack.vim'
 " vimtex plugin for latex
 ""Plugin 'lervag/vimtex'
 " Indentline

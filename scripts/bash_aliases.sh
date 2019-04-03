@@ -79,6 +79,12 @@ alias matlab='/home/saurav/Matlab/matlab'
 # see command whereis pip for all pip locations
 alias cpip='/home/saurav/anaconda3/bin/pip'
 
+# remove everything from file except printable characters
+# sed $'s/[^[:print:]\t]//g' $1
+
+# https://github.com/sharkdp/fd is very fast :O
+alias fde='fd -e'
+
 # code grep, ripgrep > ag > grep
 function cgrep {
   if rg --version >/dev/null 2>&1; then
