@@ -79,8 +79,15 @@ alias matlab='/home/saurav/Matlab/matlab'
 # see command whereis pip for all pip locations
 alias cpip='/home/saurav/anaconda3/bin/pip'
 
+# code grep, ripgrep > ag > grep
 function cgrep {
-  if ag --version >/dev/null 2>&1; then
+  if rg --version >/dev/null 2>&1; then
+    rg --colors line:fg:red \
+       --colors match:bg:yellow \
+       --colors match:style:nobold \
+       --colors match:fg:black \
+       -ni "$@"
+  elif ag --version >/dev/null 2>&1; then
     ag --color-line-number 31 --color-match 43 --color-path 35 --ignore-case "$@"
   else
     grep -nir "$@"
