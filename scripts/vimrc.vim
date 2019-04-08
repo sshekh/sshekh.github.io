@@ -240,6 +240,8 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'mileszs/ack.vim'
 " vimtex plugin for latex
 ""Plugin 'lervag/vimtex'
+" Solarized colorscheme
+Plugin 'altercation/vim-colors-solarized'
 " Indentline
 Plugin 'Yggdroot/indentLine'
 " From Google Codefmt https://github.com/google/vim-codefmt 
