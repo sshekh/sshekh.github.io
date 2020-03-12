@@ -180,8 +180,10 @@ if has("gui_running")
   autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
   " display math symbols in bold
   "autocmd FileType tex nmap <LocalLeader>h :highlight Conceal gui=bold guifg=blue<CR>
-  autocmd FileType tex :colorscheme solarized
-  autocmd FileType tex :set background=dark
+  ""autocmd FileType tex :colorscheme solarized
+  ""autocmd FileType tex :set background=dark
+  " No 80 char width in tex. Write sentence by sentence as it helps in editing
+  autocmd FileType tex :set colorcolumn=
 else
   " basic raw vim
   let g:loaded_youcompleteme = 1
@@ -197,10 +199,12 @@ else
   endif
 endif
 
+" No NERDTree by default, use fuzzy search
+autocmd VimEnter * NERDTreeToggle
 if exists('$TMUX')
   " Keep it simple, no nerdtree, no syntastic
-  autocmd VimEnter * NERDTreeToggle
-  autocmd VimEnter * SyntasticToggleMode
+  ""autocmd VimEnter * SyntasticToggleMode
+  set background=dark
 endif
 
 if has('nvim')
