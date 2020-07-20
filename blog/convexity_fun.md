@@ -22,3 +22,5 @@ $$
 $$
 
 [List of equivalent conditions ](https://xingyuzhou.org/blog/notes/Lipschitz-gradient)
+
+_Todo add more_
