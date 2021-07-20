@@ -9,5 +9,6 @@ Welcome to my homepage. Some cool things:
 * [Convexity conditions on functionals (with examples on probability distributions)](blog/convexity_fun)
 * [Monte Carlo KL Divergence in Tensorflow distributions](blog/tf_kl_divergence)
 * [C/C++/Python Code Snippets](blog/snips)
+* [Python post ideas](blogs/python)
 
 *[//]:  [My Linux config files](scripts/)
